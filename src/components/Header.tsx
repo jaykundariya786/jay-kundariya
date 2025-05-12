@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "wouter";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 export default function Header() {
   const isActive = (path: string) => {
@@ -24,6 +24,8 @@ export default function Header() {
     scrollPosition > 50
       ? "py-3 bg-gray-900/90 backdrop-blur-sm shadow-sm"
       : "py-5";
+
+  const handleMenuToggle = isMenuOpen ? "h-[100px] mt-4" : "h-0 mt-0";
 
   return (
     <header
@@ -67,11 +69,11 @@ export default function Header() {
         </div>
 
         <button
-          className="md:hidden hover-element w-12 h-12 rounded-full bg-white shadow-md flex items-center justify-center focus:outline-none transition-transform duration-300 hover:rotate-90"
+          className="md:hidden hover-element w-12 h-12 shadow-md flex items-center justify-center focus:outline-none transition-transform duration-300"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           <svg
-            className="w-6 h-6 text-gray-700"
+            className="w-6 h-6 text-white"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -86,9 +88,44 @@ export default function Header() {
           </svg>
         </button>
       </div>
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -20 }}
+        transition={{ duration: 0.3 }}
+        className={`top-20 md:hidden right-4 w-[90vw] max-w-[320px] ${handleMenuToggle} bg-transparent transition-all overflow-hidden duration-300`}
+      >
+        <div className="uppercase tracking-wider gap-4 text-sm font-bold flex flex-col">
+          <a
+            href="/"
+            className={`transition duration-300 ${
+              isActive("/") ? "text-blue-600" : "hover:text-blue-600"
+            }`}
+          >
+            Home
+          </a>
+          <a
+            href="/projects"
+            className={`transition duration-300 ${
+              isActive("/projects") ? "text-blue-600" : "hover:text-blue-600"
+            }`}
+          >
+            Projects
+          </a>
+
+          <a
+            href="/contact"
+            className={`transition duration-300 ${
+              isActive("/contact") ? "text-blue-600" : "hover:text-blue-600"
+            }`}
+          >
+            Contact
+          </a>
+        </div>
+      </motion.div>
 
       {/* Mobile Menu */}
-      <AnimatePresence>
+      {/* <AnimatePresence>
         {isMenuOpen && (
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -109,34 +146,10 @@ export default function Header() {
                 </li>
                 <li>
                   <a
-                    href="/services"
-                    className="block py-2 px-4 rounded-lg hover:bg-gray-100 text-gray-700"
-                  >
-                    Services
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/about"
-                    className="block py-2 px-4 rounded-lg hover:bg-gray-100 text-gray-700"
-                  >
-                    About
-                  </a>
-                </li>
-                <li>
-                  <a
                     href="/projects"
                     className="block py-2 px-4 rounded-lg hover:bg-gray-100 text-gray-700"
                   >
                     Portfolio
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/career"
-                    className="block py-2 px-4 rounded-lg hover:bg-gray-100 text-gray-700"
-                  >
-                    Career
                   </a>
                 </li>
                 <li>
@@ -151,7 +164,7 @@ export default function Header() {
             </nav>
           </motion.div>
         )}
-      </AnimatePresence>
+      </AnimatePresence> */}
     </header>
   );
 }

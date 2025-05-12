@@ -7,7 +7,7 @@ export const projects = [
       "This case study highlights the MaxDeal application, detailing its project overview, tools used, features, and visual experience",
     tags: ["React Native", "Node.js", "mongodb"],
     image:
-      "https://github.com/jaykundariya786/Pictures/blob/main/Max%20Deal/screen_1.png?raw=true",
+      "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/Max%20Deal/screen_1.png",
   },
   {
     id: "tour-place",
@@ -17,7 +17,7 @@ export const projects = [
       "A travel companion app for discovering, planning, and booking tours with intuitive UX and seamless user flows.",
     tags: ["React Native", "Node Js", "mongodb"],
     image:
-      "https://github.com/jaykundariya786/Pictures/blob/main/Tour%20Place/screen_1.png?raw=true",
+      "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/Tour%20Place/screen_1.png",
   },
   {
     id: "shop-swift",
@@ -27,7 +27,7 @@ export const projects = [
       "ShopSwift is a sleek, mobile e-commerce platform built for seamless online shopping. This case study includes UI screenshots.",
     tags: ["React Native", "Node Js", "mongodb"],
     image:
-      "https://github.com/jaykundariya786/Pictures/blob/main/Shop%20Swift/screen_1.png?raw=true",
+      "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/Shop%20Swift/screen_1.png",
   },
   {
     id: "visual-ai",

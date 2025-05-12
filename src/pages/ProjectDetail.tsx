@@ -9,8 +9,16 @@ const ProjectDetail: React.FC = () => {
   const [activeImageIndex, setActiveImageIndex] = React.useState(0);
 
   const project = projectId
-    ? projectsData.filter((project) => project.id === projectId)[0]
+    ? projectsData?.filter((project) => project?.id === projectId)?.[0]
     : null;
+
+  const handleNextImage = () => {
+    if (project) {
+      setActiveImageIndex((prev) =>
+        prev === project?.images?.length - 1 ? 0 : prev + 1
+      );
+    }
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -19,14 +27,6 @@ const ProjectDetail: React.FC = () => {
 
     return () => clearInterval(interval);
   }, []);
-
-  const handleNextImage = () => {
-    if (project) {
-      setActiveImageIndex((prev) =>
-        prev === project.images.length - 1 ? 0 : prev + 1
-      );
-    }
-  };
 
   if (!project) {
     return (

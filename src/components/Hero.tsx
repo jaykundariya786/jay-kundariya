@@ -35,7 +35,7 @@ export default function Hero() {
   return (
     <section
       ref={heroRef}
-      className="min-h-screen bg-gray-50 flex items-center -mt-4 justify-center px-6 relative overflow-hidden "
+      className="min-h-screen bg-gray-50 py-12 lg:py-0 md:py-0 flex items-center -mt-4 justify-center px-6 relative overflow-hidden "
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8  relative">
         <div
