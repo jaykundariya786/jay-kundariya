@@ -7,10 +7,10 @@ export const projectsData = [
     description:
       "This case study highlights the MaxDeal application, detailing its project overview, tools used, features, and visual experience.",
     images: [
-      "https://github.com/jaykundariya786/Pictures/blob/main/Max%20Deal/screen_1.png?raw=true",
-      "https://github.com/jaykundariya786/Pictures/blob/main/Max%20Deal/screen_2.png?raw=true",
-      "https://github.com/jaykundariya786/Pictures/blob/main/Max%20Deal/screen_3.png?raw=true",
-      "https://github.com/jaykundariya786/Pictures/blob/main/Max%20Deal/screnn_4.png?raw=true",
+      "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/Max%20Deal/screen_1.png",
+      "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/Max%20Deal/screen_2.png",
+      "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/Max%20Deal/screen_3.png",
+      "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/Max%20Deal/screen_4.png",
     ],
     overview:
       "A lifestyle and hospitality platform providing exclusive offers at restaurants and hotels.",
@@ -48,11 +48,11 @@ export const projectsData = [
     description:
       "A travel companion app for discovering, planning, and booking tours with intuitive UX and seamless user flows.",
     images: [
-      "https://github.com/jaykundariya786/Pictures/blob/main/Tour%20Place/screen_1.png?raw=true",
-      "https://github.com/jaykundariya786/Pictures/blob/main/Tour%20Place/screen_2.png?raw=true",
-      "https://github.com/jaykundariya786/Pictures/blob/main/Tour%20Place/screen_3.png?raw=true",
-      "https://github.com/jaykundariya786/Pictures/blob/main/Tour%20Place/screen_4.png?raw=true",
-      "https://github.com/jaykundariya786/Pictures/blob/main/Tour%20Place/screen_5.png?raw=true",
+      "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/Tour%20Place/screen_1.png",
+      "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/Tour%20Place/screen_2.png",
+      "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/Tour%20Place/screen_3.png",
+      "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/Tour%20Place/screen_4.png",
+      "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/Tour%20Place/screen_5.png",
     ],
     overview:
       "A travel booking platform designed to simplify the discovery and reservation of tours, hotels, and experiences worldwide.",
@@ -88,11 +88,11 @@ export const projectsData = [
     description:
       "ShopSwift is a sleek, mobile e-commerce platform built for seamless online shopping. This case study includes real UI screenshots, an overview, features, and tools used.",
     images: [
-      "https://github.com/jaykundariya786/Pictures/blob/main/Shop%20Swift/screen_1.png?raw=true",
-      "https://github.com/jaykundariya786/Pictures/blob/main/Shop%20Swift/screen_2.png?raw=true",
-      "https://github.com/jaykundariya786/Pictures/blob/main/Shop%20Swift/screen_3.png?raw=true",
-      "https://github.com/jaykundariya786/Pictures/blob/main/Shop%20Swift/screen_4.png?raw=true",
-      "https://github.com/jaykundariya786/Pictures/blob/main/Shop%20Swift/screen_5.png?raw=true",
+      "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/Shop%20Swift/screen_1.png",
+      "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/Shop%20Swift/screen_2.png",
+      "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/Shop%20Swift/screen_3.png",
+      "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/Shop%20Swift/screen_4.png",
+      "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/Shop%20Swift/screen_5.png",
     ],
     overview:
       "ShopSwift is a modern and responsive e-commerce mobile app designed to offer users a clean, intuitive interface for discovering and purchasing products across multiple categories.",
