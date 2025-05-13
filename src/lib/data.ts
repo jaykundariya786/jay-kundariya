@@ -10,6 +10,16 @@ export const projects = [
       "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/Max%20Deal/screen_1.png",
   },
   {
+    id: "form-app",
+    title: "From App",
+    category: "Productivity",
+    description:
+      "From App is a mobile-first form builder app that helps users create, preview, and manage forms on the go with a clean and intuitive interface.",
+    tags: ["React Native", "Firebase", "Form Builder"],
+    image:
+      "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/Form%20App/screen_1.png",
+  },
+  {
     id: "tour-place",
     title: "Tour Place",
     category: "Traveling",

@@ -41,6 +41,49 @@ export const projectsData = [
     liveLink: "",
   },
   {
+    id: "form-app",
+    category: "Productivity",
+    tags: ["React Native", "Firebase", "Form Builder"],
+    title: "From App",
+    description:
+      "From App is a mobile-first form builder app that helps users create, preview, and manage forms on the go with a clean and intuitive interface.",
+    images: [
+      "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/Form%20App/screen_1.png",
+      "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/Form%20App/screen_2.png",
+      "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/Form%20App/screen_3.png",
+      "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/Form%20App/screen_4.png",
+      "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/Form%20App/screen_5.png",
+    ],
+    overview:
+      "From App is a mobile form creation platform that allows users to build forms using drag-and-drop input types, manage responses, and customize form settings—all within a user-friendly mobile interface.",
+    longDescription:
+      "From App is designed for users who want to quickly create and manage forms directly from their smartphones. With features like Google Sign-In, response tracking, and template libraries, the app enables smooth end-to-end form workflows. Whether you're collecting contact info, feedback, or quiz answers, From App makes the experience efficient and visually appealing. It supports various input types such as short answer, paragraph, multiple choice, date/time, and more. Users can also configure advanced settings like email collection, response limits, and result summaries.",
+    purpose:
+      "To provide a fully mobile-optimized solution for creating and managing digital forms without relying on desktop tools, suitable for surveys, quizzes, feedback collection, event registration, and more.",
+    features: [
+      "Sign in with Google for sync and cloud backup",
+      "Template library with categories: Personal, Work, Education",
+      "Form creation with drag-and-drop question types like Short Answer, Paragraph, Multiple Choice, Date, Time, Dropdown, Checkbox, and Linear Scale",
+      "Tabbed navigation for Questions, Preview, Responses, and Settings",
+      "Live preview to test form behavior instantly",
+      "Response viewer with submission charts and text results",
+      "Form setting options: Accept responses, email collection, edit after submit, limit responses, and set end date",
+      "Modern floating action button for adding new fields",
+      "Clean UI with light and dark mode handling",
+      "Option to upgrade to premium and change app language",
+    ],
+    tools: [
+      "React Native",
+      "Typescript",
+      "Redux",
+      "Google Authentication",
+      "Google Sign-In Integration",
+      "Google Workspace Api",
+    ],
+    appLink: "",
+    liveLink: "",
+  },
+  {
     id: "tour-place",
     category: "Travelling",
     tags: ["React Native", "Node.js", "mongodb"],
