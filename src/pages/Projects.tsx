@@ -59,11 +59,11 @@ export default function Projects() {
           variants={container}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.05 }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {projects.map((project, index) => (
-            <>
+            <div key={index}>
               <motion.div
                 key={project.id}
                 variants={item}
@@ -111,7 +111,7 @@ export default function Projects() {
                   </a>
                 </div>
               </motion.div>
-            </>
+            </div>
           ))}
         </motion.div>
       </div>

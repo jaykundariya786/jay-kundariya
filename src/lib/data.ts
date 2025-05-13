@@ -20,6 +20,16 @@ export const projects = [
       "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/Form%20App/screen_1.png",
   },
   {
+    id: "skill-play",
+    title: "SkillPlay",
+    category: "Gaming",
+    tags: ["React Native", "Real Money Game", "Multiplayer"],
+    description:
+      "SkillPlay is a skill-based real money gaming app offering multiplayer games like Rummy, Ludo, and Call Break, with leaderboard challenges, wallet integration, and spin-to-win rewards.",
+    image:
+      "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/Real%20Money/screen_1.png",
+  },
+  {
     id: "tour-place",
     title: "Tour Place",
     category: "Traveling",

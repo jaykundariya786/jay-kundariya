@@ -290,4 +290,58 @@ export const projectsData = [
     liveLink: "https://fruits-selling-tcj.netlify.app",
     appLink: "",
   },
+  {
+    id: "skill-play",
+    category: "Gaming",
+    tags: [
+      "React Native",
+      "Firebase",
+      "Real Money Game",
+      "Multiplayer",
+      "Rummy",
+      "Ludo",
+      "Unity",
+      "Node.Js",
+    ],
+    title: "SkillPlay",
+    description:
+      "SkillPlay is a skill-based real money gaming app offering multiplayer games like Rummy, Ludo, and Call Break, with leaderboard challenges, wallet integration, and spin-to-win rewards.",
+    images: [
+      "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/Real%20Money/screen_1.png",
+      "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/Real%20Money/screen_2.png",
+      "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/Real%20Money/screen_3.png",
+      "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/Real%20Money/screen_4.png",
+      "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/Real%20Money/screen_5.png",
+    ],
+    overview:
+      "SkillJack is a multiplayer gaming platform that enables users to play skill-based games and earn real cash. It includes game rooms, live tournaments, wallet features, and daily challenges, making the experience competitive and rewarding.",
+    longDescription:
+      "SkillJack brings together popular Indian games like Rummy, Ludo, Call Break, Snakes & Ladders, and more, letting users participate in live tournaments, practice matches, and competitive showdowns. With OTP-based login, referral bonuses, spin-to-win rewards, and a detailed leaderboard system, users can track their rank and performance. It also supports wallet funding, withdrawals, referral codes, and in-app notifications for game issues and results. The dark-themed UI gives it a polished casino-like experience designed for both casual and serious players.",
+    purpose:
+      "To offer a secure and entertaining platform for users to play skill-based games competitively and earn real rewards, while building a gaming community with leaderboard recognition and user engagement tools.",
+    features: [
+      "Mobile number login with OTP verification",
+      "Referral code system during onboarding",
+      "Spin the Wheel for daily bonus rewards",
+      "Game lobby with multiple game options: Rummy, Ludo, Call Break, Snakes & Ladders",
+      "Leaderboard system showing Game Rank, Score, and Winnings",
+      "In-app wallet for balance management, deposit, and withdrawal",
+      "Game result notifications and chat support for issue reporting",
+      "User profile with transaction history, current balance, and referral earnings",
+      "Location access for game eligibility",
+      "Side drawer with legal docs: TDS, Refund, Privacy, Terms of Service",
+      "No internet screen and retry support",
+      "Game room code system for joining private matches",
+    ],
+    tools: [
+      "React Native",
+      "Firebase Auth & Firestore",
+      "Node.js (Backend)",
+      "Socket.IO (for real-time games)",
+      "Payment Gateway Integration",
+      "Redux Toolkit",
+    ],
+    appLink: "",
+    liveLink: "",
+  },
 ];
