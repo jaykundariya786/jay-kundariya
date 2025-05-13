@@ -1,24 +1,23 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback, useState } from "react";
 import { useParams, Link } from "wouter";
 import { projectsData } from "../lib/projectData";
 import { motion } from "framer-motion";
 
 const ProjectDetail: React.FC = () => {
   const { projectId } = useParams<{ projectId: string }>();
-
-  const [activeImageIndex, setActiveImageIndex] = React.useState(0);
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
 
   const project = projectId
     ? projectsData?.filter((project) => project?.id === projectId)?.[0]
     : null;
 
-  const handleNextImage = () => {
+  const handleNextImage = useCallback(() => {
     if (project) {
       setActiveImageIndex((prev) =>
         prev === project?.images?.length - 1 ? 0 : prev + 1
       );
     }
-  };
+  }, [project]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -26,7 +25,7 @@ const ProjectDetail: React.FC = () => {
     }, 2500);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [handleNextImage]);
 
   if (!project) {
     return (
@@ -44,8 +43,7 @@ const ProjectDetail: React.FC = () => {
     <section className="pt-20 uppercase">
       <div className="mb-16">
         <div className="flex justify-center items-center relative gap-4 mb-4">
-          <div className="w-[95%] lg:w-[50%]  h-[300px] md:h-[400px] lg:h-[450px] shadow-lg rounded-3xl overflow-hidden z-0 mb-4 md:mb-0as">
-            {/* Using a placeholder color background since we don't have actual images */}
+          <div className="w-[95%] lg:w-[50%] h-[300px] md:h-[400px] lg:h-[450px] shadow-lg rounded-3xl overflow-hidden z-0 mb-4 md:mb-0as">
             <div className="w-full h-full bg-cover bg-center bg-no-repeat transition-all duration-300 ease-in-out z-0 bg-white">
               <img
                 src={project.images[activeImageIndex]}
@@ -60,7 +58,7 @@ const ProjectDetail: React.FC = () => {
           {project.images.map((_, index) => (
             <button
               key={index}
-              className={`w-4 h-4 rounded-full shadow-lg transition-colors duration-300 ease-in-out pointer-events-auto  ${
+              className={`w-4 h-4 rounded-full shadow-lg transition-colors duration-300 ease-in-out pointer-events-auto ${
                 activeImageIndex === index
                   ? "bg-gradient-to-r from-blue-600 to-purple-600 scale-125"
                   : "bg-gray-200 shadow-xl"
@@ -91,11 +89,11 @@ const ProjectDetail: React.FC = () => {
           <h2 className="text-2xl font-bold mb-4 relative pb-2 text-black tracking-wider gradient-text uppercase after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-[30%] after:rounded after:h-1 after:bg-gradient-to-r after:bg-blue-600">
             Features
           </h2>
-          <ul className=" pl-0">
+          <ul className="pl-0">
             {project.features.map((feature, index) => (
               <li
-                className="mb-3 leading-[1.6] pl-5 relative text-black before:content-[''] before:absolute before:left-0 before:top-2 before:w-2 before:rounded before:h-2 before:bg-gradient-to-r before:from-blue-600 before:to-purple-600"
                 key={index}
+                className="mb-3 leading-[1.6] pl-5 relative text-black before:content-[''] before:absolute before:left-0 before:top-2 before:w-2 before:rounded before:h-2 before:bg-gradient-to-r before:from-blue-600 before:to-purple-600"
               >
                 {feature}
               </li>
@@ -103,7 +101,7 @@ const ProjectDetail: React.FC = () => {
           </ul>
         </div>
 
-        <div className="lg:mb-16 mb-8 ">
+        <div className="lg:mb-16 mb-8">
           <h2 className="text-2xl font-bold mb-4 relative pb-2 text-black tracking-wider gradient-text uppercase after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-[30%] after:rounded after:h-1 after:bg-gradient-to-r after:bg-blue-600">
             Tools Used
           </h2>

@@ -55,22 +55,23 @@ export default function SpecialtiesGrid() {
         <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-8">
           {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"> */}
           {services.map((service) => (
-            <>
-              <div className="bg-white/80 hover:bg-white flex flex-col justify-between backdrop-blur-sm border h-[280px] border-gray-200 rounded-lg p-6 hover:border-blue-600 transition-all duration-300 hover:shadow-lg hover:scale-105 group mx-auto">
-                {/* <div className="bg-white/80 hover:bg-white flex flex-col justify-between backdrop-blur-sm border h-[280px] border-gray-200 rounded-lg p-6 hover:border-blue-600 transition-all duration-300 hover:shadow-lg hover:scale-105 group"> */}
-                <div>
-                  <div className="w-14 h-14 bg-primary/10 text-blue-600 bg-gradient-to-br from-primary/10 to-blue-400/10 rounded-lg flex items-center justify-center mb-5 group-hover:bg-gradient-to-br group-hover:from-primary/20 group-hover:to-blue-400/20 transition-all duration-300">
-                    {service.icon}
-                  </div>
-                  <h3 className="text-lg uppercase tracking-wider font-semibold text-gray-900 mb-3">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-600 uppercase tracking-wider text-sm mb-4">
-                    {service.description}
-                  </p>
+            <div
+              key={service.title}
+              className="bg-white/80 hover:bg-white flex flex-col justify-between backdrop-blur-sm border h-[280px] border-gray-200 rounded-lg p-6 hover:border-blue-600 transition-all duration-300 hover:shadow-lg hover:scale-105 group mx-auto"
+            >
+              {/* <div className="bg-white/80 hover:bg-white flex flex-col justify-between backdrop-blur-sm border h-[280px] border-gray-200 rounded-lg p-6 hover:border-blue-600 transition-all duration-300 hover:shadow-lg hover:scale-105 group"> */}
+              <div>
+                <div className="w-14 h-14 bg-primary/10 text-blue-600 bg-gradient-to-br from-primary/10 to-blue-400/10 rounded-lg flex items-center justify-center mb-5 group-hover:bg-gradient-to-br group-hover:from-primary/20 group-hover:to-blue-400/20 transition-all duration-300">
+                  {service.icon}
                 </div>
+                <h3 className="text-lg uppercase tracking-wider font-semibold text-gray-900 mb-3">
+                  {service.title}
+                </h3>
+                <p className="text-gray-600 uppercase tracking-wider text-sm mb-4">
+                  {service.description}
+                </p>
               </div>
-            </>
+            </div>
           ))}
         </div>
 
