@@ -342,6 +342,47 @@ export const projectsData = [
       "Redux Toolkit",
     ],
     appLink: "",
+    liveLink: "https://bigwinjunction.com/",
+  },
+  {
+    id: "story-well",
+    category: "Productivity",
+    tags: ["Diary App", "Dark Mode", "News Integration"],
+    title: "StoryWell",
+    description:
+      "StoryWell is a personal diary and mood journaling app with theme customization, news highlights, and a modern, distraction-free writing experience.",
+    images: [
+      "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/Story%20Well/screen_1.png",
+      "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/Story%20Well/screen_2.png",
+      "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/Story%20Well/screen_3.png",
+      "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/Story%20Well/screen_4.png",
+      "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/Story%20Well/screen_5.png",
+    ],
+    overview:
+      "StoryWell is your everyday companion for reflective writing, mood tracking, and memory keeping. Featuring a clean UI, customizable themes, and monthly sorting of diaries, it's perfect for building daily writing habits.",
+    longDescription:
+      "StoryWell is a personal journaling app designed for users who want a simple yet powerful tool to record their thoughts, emotions, and memories. It allows users to create diary entries, track them month-wise, and even browse top daily news for inspiration. The app supports light and dark themes, custom accent colors, nickname personalization, and diary memory tracking by year and month. A unique feature is its in-app curated news reader to help users stay informed and reflect on daily events. With its modern UI and distraction-free editor, StoryWell helps users stay organized, thoughtful, and productive.",
+    purpose:
+      "To promote mindfulness, emotional wellness, and daily reflection by offering a delightful journaling experience enhanced with modern UI and informative news integration.",
+    features: [
+      "Create and edit personal diary entries",
+      "Track memories month-wise and year-wise",
+      "Nickname setup on first launch (one-time)",
+      "Integrated news reader for daily updates and inspiration",
+      "Light and dark mode toggle",
+      "Customizable accent colors for personalization",
+      "Clean and intuitive UI with floating action buttons",
+      "Rich text editor for title and mood tracking",
+      "Visual cover art to inspire journaling",
+      "Offline first — no diary entries lost without internet",
+    ],
+    tools: [
+      "React Native",
+      "React Navigation",
+      "AsyncStorage",
+      "REST API for News (e.g., NewsAPI or custom feed)",
+    ],
+    appLink: "https://play.google.com/store/apps/details?id=com.storywell",
     liveLink: "",
   },
 ];

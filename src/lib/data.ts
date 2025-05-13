@@ -30,6 +30,16 @@ export const projects = [
       "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/Real%20Money/screen_1.png",
   },
   {
+    id: "story-well",
+    title: "StoryWell",
+    category: "Productivity",
+    description:
+      "StoryWell is a personal diary and mood journaling app with theme customization, news highlights, and a modern, distraction-free writing experience.",
+    tags: ["Diary App", "Dark Mode", "News Integration"],
+    image:
+      "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/Story%20Well/screen_1.png",
+  },
+  {
     id: "tour-place",
     title: "Tour Place",
     category: "Traveling",
