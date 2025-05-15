@@ -20,6 +20,16 @@ export const projects = [
       "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/Form%20App/screen_1.png",
   },
   {
+    id: "ram-k9",
+    title: "RAM K9",
+    category: "Productivity",
+    tags: ["React Native", "Training", "Working Dogs"],
+    description:
+      "RAM K9 Tracker is a powerful mobile app for K9 handlers to track training, gear, and shared dog info with ease and precision.",
+    image:
+      "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/RAM%20K9/screen_1.png",
+  },
+  {
     id: "skill-play",
     title: "SkillPlay",
     category: "Gaming",

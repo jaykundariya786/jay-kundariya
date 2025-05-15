@@ -84,6 +84,56 @@ export const projectsData = [
     liveLink: "",
   },
   {
+    id: "ram-k9",
+    category: "Productivity",
+    tags: [
+      "React Native",
+      "Firebase",
+      "K9 Training",
+      "Gear Tracker",
+      "Calendar",
+      "Working Dogs",
+    ],
+    title: "RAM K9",
+    description:
+      "RAM K9 Tracker is a powerful mobile app for K9 handlers to track training, gear, and shared dog info with ease and precision.",
+    images: [
+      "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/RAM%20K9/screen_1.png",
+      "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/RAM%20K9/screen_2.png",
+      "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/RAM%20K9/screen_3.png",
+      "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/RAM%20K9/screen_4.png",
+      "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/RAM%20K9/screen_5.png",
+    ],
+    overview:
+      "Built for K9 units and professional dog handlers, RAM K9 Tracker helps you record training sessions, manage goals, log equipment, and share dog profiles — all in one sleek, intuitive app.",
+    longDescription:
+      "RAM K9 Tracker is tailored for working dog professionals. Whether you're training search & rescue dogs, service animals, or law enforcement K9s, this app helps you stay organized and informed. Log training events, set specific goals, and maintain detailed gear lists. The calendar view enables monthly overviews of training activity. A dedicated 'Learning Center' provides educational content and updates, while shared access features help streamline communication between team members. The app also includes account management, subscription control, notification history, and a professional dark-themed UI.",
+    purpose:
+      "To streamline K9 training documentation, goal setting, and gear tracking for dog trainers, handlers, and organizations.",
+    features: [
+      "Log training sessions with trial name, location, focus, and notes",
+      "Set training goals and track milestones",
+      "Add and manage gear with item details and categories",
+      "Calendar view for training history and planning",
+      "Learning Center with guides and articles",
+      "Share dogs and gear lists with others in your team",
+      "View past notifications and updates",
+      "Settings panel with subscription and profile control",
+      "Dark-themed UI for outdoor/low-light use",
+      "Secure login with Google Authentication",
+    ],
+    tools: [
+      "React Native",
+      "Firebase Auth",
+      "Firestore",
+      "React Navigation",
+      "Custom Calendar UI",
+      "Secure Sharing via Firestore",
+    ],
+    appLink: "",
+    liveLink: "",
+  },
+  {
     id: "tour-place",
     category: "Travelling",
     tags: ["React Native", "Node.js", "mongodb"],
