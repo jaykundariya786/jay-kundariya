@@ -134,6 +134,56 @@ export const projectsData = [
     liveLink: "",
   },
   {
+    id: "marksman-journal",
+    category: "Sports",
+    tags: [
+      "React Native",
+      "Firebase",
+      "Shooting Sports",
+      "Precision Rifle",
+      "Gear Tracker",
+      "Training Log",
+    ],
+    title: "Marksman Journal",
+    description:
+      "Marksman Journal helps competitive shooters track training, matches, gear, and goals with precision and clarity.",
+    images: [
+      "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/M%20J/screen_1.png",
+      "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/M%20J/screen_2.png",
+      "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/M%20J/screen_3.png",
+      "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/M%20J/screen_4.png",
+      "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/M%20J/screen_5.png",
+    ],
+    overview:
+      "Designed for precision shooters, the Marksman Journal app empowers users to document every training session, track match performance, log gear, and share lists in a clean, tactical interface.",
+    longDescription:
+      "Marksman Journal is built for rifle sport enthusiasts, long-range shooters, and competitive marksmen. Whether you're logging training sessions, setting shooting goals, or organizing gear, this app keeps your preparation sharp and organized. It features custom input for matches, gear lists, rifle setup, and goal progress. The built-in Learning Center provides podcasts and video resources to improve performance. A modern dark-themed UI enhances readability during field use, and secure sharing lets you collaborate on setups and logs. Built with React Native and Firebase for real-time sync and secure access.",
+    purpose:
+      "To streamline training, match prep, and gear tracking for precision shooters and competitive marksmen.",
+    features: [
+      "Log match data including class, location, and outcomes",
+      "Set and track shooting or training goals",
+      "Create and manage rifle gear lists with editable items",
+      "Learning Center with embedded media for rifle setup and training",
+      "Share gear lists and logs with others",
+      "Rename, duplicate, or delete logs easily",
+      "Dark-themed UI for visibility in low-light conditions",
+      "Calendar view for upcoming goals or past events",
+      "Bug fixes and update logs for transparent app evolution",
+      "Secure email/password login and sharing access",
+    ],
+    tools: [
+      "React Native",
+      "Firebase Auth",
+      "Firestore",
+      "React Navigation",
+      "Embedded YouTube Player",
+      "Dynamic Gear and Goal Components",
+    ],
+    appLink: "",
+    liveLink: "",
+  },
+  {
     id: "tour-place",
     category: "Travelling",
     tags: ["React Native", "Node.js", "mongodb"],

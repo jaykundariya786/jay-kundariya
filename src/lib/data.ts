@@ -30,6 +30,16 @@ export const projects = [
       "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/RAM%20K9/screen_1.png",
   },
   {
+    id: "marksman-journal",
+    title: "Marksman Journal",
+    category: "Sports",
+    tags: ["React Native", "Shooting Sports", "Training Log"],
+    description:
+      "Marksman Journal helps competitive shooters track training, matches, gear, and goals with precision and clarity.",
+    image:
+      "https://raw.githubusercontent.com/jaykundariya786/Pictures/refs/heads/main/M%20J/screen_1.png",
+  },
+  {
     id: "skill-play",
     title: "SkillPlay",
     category: "Gaming",
