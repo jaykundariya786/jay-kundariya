@@ -2,11 +2,11 @@ import { floatingElements1 } from "../lib/imageDate";
 
 function TestimonialLogoCard({ image }: { image: string }) {
   return (
-    <div className="p-10 bg-white dark:bg-card card-hover transition-all duration-500 w-[200px] h-[200px] flex flex-col">
+    <div className="p-8 bg-[#FFFFFF] rounded-2xl border border-[#E9C46A]/30 card-hover transition-all duration-500 w-[180px] h-[180px] flex flex-col items-center justify-center shadow-md">
       <img
         src={image}
-        alt="Testimonial"
-        className="w-full h-full object-contain"
+        alt="Tech icon"
+        className="w-full h-full object-contain filter brightness-95"
       />
     </div>
   );
@@ -14,7 +14,7 @@ function TestimonialLogoCard({ image }: { image: string }) {
 
 export default function FloatingElements() {
   return (
-    <div className="w-full overflow-hidden justify-center mt-32 flex flex-col fixed inset-0  z-[-1] blur-sm before:left-0 before:top-0 before:z-10 before:h-full before:w-16 before:bg-gradient-to-r before:from-white before:to-transparent before:content-[''] after:right-0 after:top-0 after:z-10 after:h-full after:w-16 after:bg-gradient-to-l after:from-white after:to-transparent after:content-['']">
+    <div className="w-full overflow-hidden justify-center mt-32 flex flex-col fixed inset-0 z-[-1] blur-sm before:left-0 before:top-0 before:z-10 before:h-full before:w-16 before:bg-gradient-to-r before:from-[#FFFFFF] before:to-transparent before:content-[''] after:right-0 after:top-0 after:z-10 after:h-full after:w-16 after:bg-gradient-to-l after:from-[#FFFFFF] after:to-transparent after:content-['']">
       <div className="flex pt-4 md:pt-6 animate-scroll-slow">
         {[...floatingElements1, ...floatingElements1, ...floatingElements1].map(
           (testimonial, i) => (

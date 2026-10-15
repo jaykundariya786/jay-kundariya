@@ -1,4 +1,4 @@
-import { FiGithub, FiLinkedin, FiFileText, FiMail } from "react-icons/fi";
+import { Linkedin, Github, FileText, Mail } from "lucide-react";
 
 export function FloaingBtn() {
   return (
@@ -7,33 +7,33 @@ export function FloaingBtn() {
         <a
           rel="noopener noreferrer"
           href="https://linkedin.com/"
-          className="flex items-center justify-center w-10 h-10 text-blue-600 hover:w-12 hover:h-12 rounded-full bg-white shadow-md hover:shadow-lg hover:bg-blue-600 hover:text-white transition-all duration-300 ease-in-out"
+          className="flex items-center justify-center w-10 h-10 text-[#0D1321] hover:w-12 hover:h-12 rounded-full bg-white border border-[#E9C46A]/35 shadow-md hover:shadow-[0_4px_16px_rgba(233,196,106,0.4)] hover:bg-[#E9C46A] hover:text-[#0D1321] transition-all duration-300 ease-in-out"
           target="_blank"
         >
-          <FiLinkedin className="h-5 w-5" />
+          <Linkedin className="h-5 w-5" />
         </a>
         <a
           rel="noopener noreferrer"
           href="https://github.com/"
-          className="flex items-center justify-center w-10 h-10 text-blue-600 hover:w-12 hover:h-12 rounded-full bg-white shadow-md hover:shadow-lg hover:bg-blue-600 hover:text-white transition-all duration-300 ease-in-out"
+          className="flex items-center justify-center w-10 h-10 text-[#0D1321] hover:w-12 hover:h-12 rounded-full bg-white border border-[#E9C46A]/35 shadow-md hover:shadow-[0_4px_16px_rgba(233,196,106,0.4)] hover:bg-[#E9C46A] hover:text-[#0D1321] transition-all duration-300 ease-in-out"
           target="_blank"
         >
-          <FiGithub className="h-5 w-5" />
+          <Github className="h-5 w-5" />
         </a>
         <a
           rel="noopener noreferrer"
           href="mailto:jaykundariya786@gmail.com"
-          className="flex items-center justify-center w-10 h-10 text-blue-600 hover:w-12 hover:h-12 rounded-full bg-white shadow-md hover:shadow-lg hover:bg-blue-600 hover:text-white transition-all duration-300 ease-in-out"
+          className="flex items-center justify-center w-10 h-10 text-[#0D1321] hover:w-12 hover:h-12 rounded-full bg-white border border-[#E9C46A]/35 shadow-md hover:shadow-[0_4px_16px_rgba(233,196,106,0.4)] hover:bg-[#E9C46A] hover:text-[#0D1321] transition-all duration-300 ease-in-out"
         >
-          <FiMail className="h-5 w-5" />
+          <Mail className="h-5 w-5" />
         </a>
         <a
           rel="noopener noreferrer"
           href={require("../assets/JayKundariya.pdf")}
-          className="flex items-center justify-center w-10 h-10 text-blue-600 hover:w-12 hover:h-12 rounded-full bg-white shadow-md hover:shadow-lg hover:bg-blue-600 hover:text-white transition-all duration-300 ease-in-out"
+          className="flex items-center justify-center w-10 h-10 text-[#0D1321] hover:w-12 hover:h-12 rounded-full bg-white border border-[#E9C46A]/35 shadow-md hover:shadow-[0_4px_16px_rgba(233,196,106,0.4)] hover:bg-[#E9C46A] hover:text-[#0D1321] transition-all duration-300 ease-in-out"
           target="_blank"
         >
-          <FiFileText className="h-5 w-5" />
+          <FileText className="h-5 w-5" />
         </a>
       </div>
     </div>

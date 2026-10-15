@@ -7,7 +7,32 @@ export default {
         md: "0.375rem",
         sm: "0.25rem",
       },
+      fontFamily: {
+        serif: ['"Playfair Display"', "Georgia", "serif"],
+        sans: ['"Plus Jakarta Sans"', "Inter", "sans-serif"],
+        mono: ['"JetBrains Mono"', "monospace"],
+      },
       colors: {
+        // Midnight Gold Palette
+        white: "#FFFFFF",
+        "ink-navy": "#0D1321",
+        "deep-indigo": "#1D2D50",
+        "champagne-gold": "#E9C46A",
+        "soft-cream": "#F4EDE0",
+        "electric-cyan": "#4CC9F0",
+        "mint-code": "#7CF5C5",
+        "peach-glow": "#FFD3A5",
+        midnight: {
+          DEFAULT: "#0D1321",
+          white: "#FFFFFF",
+          navy: "#0D1321",
+          indigo: "#1D2D50",
+          gold: "#E9C46A",
+          cream: "#F4EDE0",
+          cyan: "#4CC9F0",
+          mint: "#7CF5C5",
+          peach: "#FFD3A5",
+        },
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {

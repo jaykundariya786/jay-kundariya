@@ -1,4 +1,262 @@
 export const projectsData = [
+   {
+    id: "esanad",
+    category: "Insurance",
+    tags: ["React Native", "UAE PASS", "Insurance", "API Integration"],
+    title: "eSanad - Insurance Marketplace",
+    description:
+      "eSanad is a UAE insurance comparison and buying platform covering motor, health and travel insurance, with Android and iOS apps built from scratch.",
+    images: [],
+    overview:
+      "A licensed UAE insurance marketplace where users compare plans from 35+ insurers and buy motor, health and travel insurance online.",
+    longDescription:
+      "eSanad is a UAE insurance comparison platform licensed by the Central Bank of the UAE. Users get instant quotes, compare plans from many insurers, and manage quotes, policies, claims and renewals in one place. I built the Android and iOS apps from scratch, worked with the UAE PASS team to build the complete authentication flow for web and mobile, and scripted the health insurance premium matrix through APIs across plan tiers, network types and visa types.",
+    purpose:
+      "To make buying and managing insurance in the UAE fast and digital, with secure sign-in through UAE PASS and instant price comparison across insurers.",
+    features: [
+      "Android and iOS apps built from scratch",
+      "Complete UAE PASS authentication flow for web and mobile",
+      "Motor, health and travel insurance quotes and comparison",
+      "Health insurance premium matrix configured through API scripting",
+      "Plan tiers, network types and visa-type based pricing",
+      "Quotes, policies, claims and renewals in one hub",
+      "AI assistant and human agent support",
+    ],
+    tools: [
+      "React Native",
+      "UAE PASS Authentication",
+      "REST APIs",
+      "Python (API scripting)",
+    ],
+    appLink: "",
+    liveLink: "https://www.esanad.com",
+  },
+  {
+    id: "pos-platform",
+    category: "Business",
+    tags: ["React Native", "Expo", "Next.js", "PostgreSQL", "SaaS"],
+    title: "POS & Business Management Platform",
+    description:
+      "A complete multi-location POS SaaS product for restaurants and retail, solo-built end to end (frontend and backend) in 1.5 months.",
+    images: [],
+    overview:
+      "A multi-tenant POS and business management platform for the Indian market, with a branch POS app and web dashboards for platform owners and restaurant admins.",
+    longDescription:
+      "This SaaS platform covers everything a multi-branch restaurant needs: billing, orders and KOT, menu, inventory, tables, staff and subscriptions. It has four codebases: an Expo/React Native POS app used at branches, a Next.js superadmin dashboard for the platform owner, a Next.js restaurant admin dashboard, and a multi-tenant PostgreSQL backend with JWT authentication and four user roles (superadmin, admin, manager, staff). I built the whole product alone in 1.5 months.",
+    purpose:
+      "To give Indian restaurants and retailers an affordable, GST-ready POS and management system that works across many branches.",
+    features: [
+      "Multi-tenant architecture with superadmin, admin, manager and staff roles",
+      "Branch POS app for orders, billing and KOT",
+      "Menu management with variants, add-ons and categories",
+      "Table and floor-plan management by zone",
+      "Inventory with stock movement ledger",
+      "GST and tax configuration for Indian billing",
+      "Subscriptions and invoices for businesses",
+      "Suppliers, expenses, utility bills and withdrawals tracking",
+      "Audit logs, notifications and support tickets",
+    ],
+    tools: [
+      "React Native",
+      "Expo",
+      "Next.js",
+      "Node.js",
+      "PostgreSQL",
+      "Prisma",
+      "JWT Authentication",
+    ],
+    appLink: "",
+    liveLink: "https://pos-landing-iota.vercel.app/",
+  },
+  {
+    id: "candor-ivf",
+    category: "Health",
+    tags: ["React Native", "Healthcare", "Patient App"],
+    title: "Candor IVF",
+    description:
+      "Patient app for Candor IVF, a fertility treatment hospital chain in Surat, Gujarat.",
+    images: [],
+    overview:
+      "A mobile app for patients of Candor IVF to stay connected with the hospital and follow their appointments and treatment details.",
+    longDescription:
+      "Candor IVF is a fertility treatment hospital chain based in Surat, Gujarat. The app gives patients a simple way to view their appointments and details from the hospital. It was built while working at Unikwork Systems.",
+    purpose:
+      "To make it easier for fertility patients to access their appointments and hospital information from their phone.",
+    features: [
+      "View appointments and patient details",
+      "Hospital and center information",
+      "Simple, patient-friendly interface",
+    ],
+    tools: ["React Native", "REST APIs"],
+    appLink: "https://play.google.com/store/apps/details?id=com.candorivf",
+    liveLink: "http://candorivf.com/",
+  },
+  {
+    id: "njoy-cab",
+    category: "Travelling",
+    tags: ["React Native", "Cab Booking", "Outstation Taxi"],
+    title: "Njoy Cabs - Outstation Taxi",
+    description:
+      "A cab booking app for outstation, airport, city and hourly rental rides with wallet and e-payment options.",
+    images: [],
+    overview:
+      "A taxi booking app by ANED Technologies that lets users book intercity and local rides in a few taps.",
+    longDescription:
+      "Njoy Cabs lets users book outstation trips, airport transfers, city rides and hourly rentals. It supports wallet and e-payment options so users can pay in the way they prefer. The app was delivered during my freelance contract with Ewings Infotech.",
+    purpose:
+      "To make booking reliable outstation and local cab rides simple for everyday travelers.",
+    features: [
+      "Outstation, airport, city and hourly rental bookings",
+      "Wallet and e-payment options",
+      "Ride booking and trip details",
+    ],
+    tools: ["React Native", "REST APIs", "Payment Integration"],
+    appLink: "https://play.google.com/store/apps/details?id=com.njoy_outstation",
+    liveLink: "",
+  },
+  {
+    id: "qtah",
+    category: "Automotive",
+    tags: ["React Native", "Localization", "Marketplace"],
+    title: "QTAH - Used Car Parts",
+    description:
+      "A marketplace app to search for and buy used car parts, with separate experiences for users, suppliers and drivers.",
+    images: [],
+    overview:
+      "QTAH helps users find the exact used car parts they need and get them delivered to their home or workshop.",
+    longDescription:
+      "QTAH is a car parts supply platform from Riyadh with three roles in one product: customers who list and search for parts, suppliers who offer them, and drivers who deliver them. The app supports dark and light modes and both Arabic and English.",
+    purpose:
+      "To make finding and buying affordable, quality used car parts easy and convenient, with delivery to the door or workshop.",
+    features: [
+      "Three roles: user, supplier and driver",
+      "List the parts you need or search available options",
+      "Secure purchase flow with delivery to home or workshop",
+      "Dark and light modes",
+      "Arabic and English localization",
+    ],
+    tools: ["React Native", "Localization (Arabic/English)", "REST APIs"],
+    appLink: "https://play.google.com/store/apps/details?id=com.qtah.customer",
+    liveLink: "",
+  },
+  {
+    id: "that-guys-garage",
+    category: "Productivity",
+    tags: ["React Native", "Performance Tracking"],
+    title: "That Guys Garage LLC",
+    description:
+      "A performance-tracking app that records and displays your activity counts.",
+    images: [],
+    overview:
+      "An app that helps users record their performance counts and keep track of their progress over time.",
+    longDescription:
+      "That Guys Garage is a performance-tracking app that records a range of counts and shows them back to the user so they can remember and review their activity. It was built while working at Unikwork Systems.",
+    purpose:
+      "To let users record and review their performance counts in one simple place.",
+    features: [
+      "Record performance counts",
+      "View and review past activity",
+    ],
+    tools: ["React Native"],
+    appLink: "https://play.google.com/store/apps/dev?id=4776460761767443886&hl=en_IN",
+    liveLink: "",
+  },
+  {
+    id: "meal-manage",
+    category: "Education",
+    tags: ["React Native", "POS", "School Meals"],
+    title: "Meal Manage",
+    description:
+      "A K-12 school meal platform. I built both the parent app and the school POS app.",
+    images: [],
+    overview:
+      "Meal Manage connects parents and schools around school meals, with one app for parents and one POS app for schools.",
+    longDescription:
+      "Meal Manage is a school meal management platform. The parent app lets families pre-order meals, fund meal accounts, pay online and manage student allergies. The school POS app handles meal distribution and point-of-sale transactions at the school. I built both apps while working at Unikwork Systems.",
+    purpose:
+      "To simplify school meal ordering, payment and distribution for parents and school staff.",
+    features: [
+      "Parent app: pre-order meals for students",
+      "Fund meal accounts and pay online",
+      "Manage student allergies",
+      "School POS app for meal distribution",
+      "Point-of-sale transactions at the school",
+    ],
+    tools: ["React Native", "REST APIs", "Payment Integration"],
+    appLink: "https://play.google.com/store/apps/details?id=com.app.mealmanage",
+    liveLink: "",
+  },
+  {
+    id: "japa-health",
+    category: "Health",
+    tags: ["React Native", "Health", "Meditation", "Animation"],
+    title: "Japa Health",
+    description:
+      "A health and meditation app for mind and body wellness that connects doctors with registered users.",
+    images: [],
+    overview:
+      "Japa Health is a holistic wellness platform built around a personal health score, guided programs and meditation.",
+    longDescription:
+      "Japa Health helps people become healthier through a holistic assessment that gives a personal health score across 10 health areas, plus guided programs and content. The mobile app connects doctors and registered users. I built the video controller and a theme-based animation model for the app while working at Webashlar.",
+    purpose:
+      "To support mind and body wellness and connect people with doctors and experts on one platform.",
+    features: [
+      "Health and meditation content for mind and body",
+      "Video controller built for guided content",
+      "Theme-based animation model",
+      "Connects doctors and registered users",
+    ],
+    tools: ["React Native", "Custom Video Controller", "Animations"],
+    appLink: "",
+    liveLink: "https://japa.health",
+  },
+  {
+    id: "sms-marketing-app",
+    category: "Communication",
+    tags: ["React Native", "Native Module", "Android", "SMS"],
+    title: "SMS Marketing App",
+    description:
+      "An app for sending and receiving text messages directly in-app, powered by a custom native module.",
+    images: [],
+    overview:
+      "A bulk messaging app that sends a common message to 100+ contacts per second using a custom native module.",
+    longDescription:
+      "The SMS Marketing App lets users send and receive text messages directly in the application. I built a custom native module to handle sending and receiving SMS, and it can send a common message to 100+ contacts every second. It was built while working at Webashlar.",
+    purpose:
+      "To let businesses reach many contacts quickly with text messages from one app.",
+    features: [
+      "Send and receive text messages in-app",
+      "Custom native module for SMS",
+      "Send a common message to 100+ contacts every second",
+    ],
+    tools: ["React Native", "Native Modules (Android)", "Java/Kotlin Bridge"],
+    appLink: "",
+    liveLink: "",
+  },
+  {
+    id: "sheihek",
+    category: "Music",
+    tags: ["React Native", "Music Player", "Dark Mode"],
+    title: "Sheihek - Music Player",
+    description:
+      "A music player app with queue management, repeat, dark and light modes and a local data store for favorites.",
+    images: [],
+    overview:
+      "A music player platform with a custom player controller and saved favorites.",
+    longDescription:
+      "Sheihek is a music player platform. I built the player controller with queue management and repeat, dark and light themes, and a local data store that saves favorite songs and user information. It was delivered during my freelance contract with Ewings Infotech.",
+    purpose:
+      "To give users a simple, personalized way to play and organize their music.",
+    features: [
+      "Music player controller",
+      "Queue management and repeat",
+      "Dark and light modes",
+      "Local data store for favorite songs and user information",
+    ],
+    tools: ["React Native", "Local Storage", "Audio Playback"],
+    appLink: "",
+    liveLink: "",
+  },
   {
     id: "max-deal",
     category: "Shopping",

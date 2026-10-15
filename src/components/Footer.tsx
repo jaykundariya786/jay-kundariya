@@ -1,17 +1,17 @@
-import { FiGithub, FiLinkedin, FiTwitter } from "react-icons/fi";
+import { Github, Linkedin, Twitter } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className=" bg-gray-900 text-white py-12">
+    <footer className="bg-[#0D1321] text-[#F4EDE0] border-t border-[#E9C46A]/20 py-12">
       <div className="max-w-7xl container mx-auto md:px-6">
         <div className="grid grid-cols-1 uppercase tracking-wider font-bold text-sm md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center space-x-2 mb-6">
-              <span className="text-xl font-bold font-sans bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
+              <span className="text-xl font-bold font-sans bg-clip-text text-transparent bg-gradient-to-r from-[#E9C46A] via-[#FFD3A5] to-[#4CC9F0]">
                 Jay Kundariya
               </span>
             </div>
-            <p className="text-gray-400 mb-6">
+            <p className="text-[#F4EDE0]/70 normal-case font-normal text-sm mb-6">
               Building exceptional digital experiences through innovative
               technology solutions.
             </p>
@@ -21,27 +21,27 @@ export default function Footer() {
           <div className="flex justify-end space-x-4">
             <a
               href="https://github.com/"
-              className="text-gray-400 hover:text-white transition duration-300 "
+              className="text-[#F4EDE0]/60 hover:text-[#E9C46A] transition duration-300"
             >
-              <FiGithub className="text-xl" />
+              <Github className="w-5 h-5" />
             </a>
             <a
               href="https://twitter.com/"
-              className="text-gray-400 hover:text-white transition duration-300"
+              className="text-[#F4EDE0]/60 hover:text-[#E9C46A] transition duration-300"
             >
-              <FiTwitter className="text-xl" />
+              <Twitter className="w-5 h-5" />
             </a>
             <a
               href="https://linkedin.com/"
-              className="text-gray-400 hover:text-white transition duration-300"
+              className="text-[#F4EDE0]/60 hover:text-[#E9C46A] transition duration-300"
             >
-              <FiLinkedin className="text-xl" />
+              <Linkedin className="w-5 h-5" />
             </a>
           </div>
         </div>
 
-        <div className="border-t border-gray-700 mt-12 justify-center pt-8 flex flex-col md:flex-row items-center">
-          <p className="text-gray-400 text-sm mb-4 md:mb-0">
+        <div className="border-t border-[#E9C46A]/20 mt-12 justify-center pt-8 flex flex-col md:flex-row items-center">
+          <p className="text-[#F4EDE0]/60 text-sm mb-4 md:mb-0 normal-case font-normal">
             &copy; {new Date().getFullYear()} JayKundariya. All rights reserved.
           </p>
         </div>

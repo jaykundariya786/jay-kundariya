@@ -17,7 +17,6 @@
     "tsBuildInfoFile": "./node_modules/typescript/tsbuildinfo",
     "noEmit": true,
     "jsx": "preserve",
-    "allowImportingTsExtensions": true,
     "baseUrl": ".",
     "types": ["node"],
     "paths": {

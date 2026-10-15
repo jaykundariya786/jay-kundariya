@@ -4,11 +4,11 @@ export default function ContactBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden">
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-600/30 via-blue-600/20 to-blue-600/20 z-10" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#FFFFFF]/95 via-[#F4EDE0]/30 to-[#FFFFFF]/95 z-10 pointer-events-none" />
 
       {/* Center decorative element */}
       <motion.div
-        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-3xl max-h-3xl opacity-5 text-purple-400"
+        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-3xl max-h-3xl opacity-[0.04] text-[#E9C46A] pointer-events-none"
         animate={{ scale: [0.9, 1.1, 0.9] }}
         transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
       >

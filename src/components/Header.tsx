@@ -20,22 +20,25 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const isHome = location === "/";
   const headerClass =
-    scrollPosition > 50
-      ? "py-3 bg-gray-900/90 backdrop-blur-sm shadow-sm"
-      : "py-5";
+    scrollPosition > 80
+      ? "py-3 bg-[#FFFFFF]/95 backdrop-blur-md border-b border-[#E9C46A]/30 shadow-md translate-y-0 opacity-100"
+      : isHome
+      ? "-translate-y-full opacity-0 pointer-events-none"
+      : "py-5 bg-[#FFFFFF] border-b border-[#E9C46A]/20";
 
-  const handleMenuToggle = isMenuOpen ? "h-[100px] mt-4" : "h-0 mt-0";
+  const handleMenuToggle = isMenuOpen ? "h-[140px] mt-4" : "h-0 mt-0";
 
   return (
     <header
-      className={`bg-gray-900 text-white sticky top-0 z-50 left-0 w-full px-6 transition-all duration-300 ${headerClass}`}
+      className={`text-[#0D1321] sticky top-0 z-50 left-0 w-full px-6 transition-all duration-300 ${headerClass}`}
     >
       <div className="max-w-6xl mx-auto flex justify-between items-center">
         <a href="/" className="flex items-center space-x-2">
           <img
             src={require("../assets/logo.png")}
-            alt="Email icon"
+            alt="Logo"
             className="icon contact-icon"
           />
         </a>
@@ -44,7 +47,7 @@ export default function Header() {
           <a
             href="/"
             className={`transition duration-300 ${
-              isActive("/") ? "text-blue-600" : "hover:text-blue-600"
+              isActive("/") ? "text-[#E9C46A]" : "text-[#1D2D50] hover:text-[#E9C46A]"
             }`}
           >
             Home
@@ -52,7 +55,7 @@ export default function Header() {
           <a
             href="/projects"
             className={`transition duration-300 ${
-              isActive("/projects") ? "text-blue-600" : "hover:text-blue-600"
+              isActive("/projects") ? "text-[#E9C46A]" : "text-[#1D2D50] hover:text-[#E9C46A]"
             }`}
           >
             Projects
@@ -61,7 +64,7 @@ export default function Header() {
           <a
             href="/contact"
             className={`transition duration-300 ${
-              isActive("/contact") ? "text-blue-600" : "hover:text-blue-600"
+              isActive("/contact") ? "text-[#E9C46A]" : "text-[#1D2D50] hover:text-[#E9C46A]"
             }`}
           >
             Contact
@@ -69,11 +72,11 @@ export default function Header() {
         </div>
 
         <button
-          className="md:hidden hover-element w-12 h-12 shadow-md flex items-center justify-center focus:outline-none transition-transform duration-300"
+          className="md:hidden hover-element w-12 h-12 shadow-md rounded-xl bg-[#F4EDE0] border border-[#E9C46A]/30 flex items-center justify-center focus:outline-none transition-transform duration-300 text-[#E9C46A]"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           <svg
-            className="w-6 h-6 text-white"
+            className="w-6 h-6 text-[#0D1321]"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -93,13 +96,13 @@ export default function Header() {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -20 }}
         transition={{ duration: 0.3 }}
-        className={`top-20 md:hidden right-4 w-[90vw] max-w-[320px] ${handleMenuToggle} bg-transparent transition-all overflow-hidden duration-300`}
+        className={`top-20 md:hidden right-4 w-[90vw] max-w-[320px] ${handleMenuToggle} bg-[#FFFFFF] border border-[#E9C46A]/30 rounded-2xl p-4 shadow-xl transition-all overflow-hidden duration-300`}
       >
-        <div className="uppercase tracking-wider gap-4 text-sm font-bold flex flex-col">
+        <div className="uppercase tracking-wider gap-4 text-sm font-bold flex flex-col text-[#0D1321]">
           <a
             href="/"
             className={`transition duration-300 ${
-              isActive("/") ? "text-blue-600" : "hover:text-blue-600"
+              isActive("/") ? "text-[#E9C46A]" : "hover:text-[#E9C46A]"
             }`}
           >
             Home
@@ -107,7 +110,7 @@ export default function Header() {
           <a
             href="/projects"
             className={`transition duration-300 ${
-              isActive("/projects") ? "text-blue-600" : "hover:text-blue-600"
+              isActive("/projects") ? "text-[#E9C46A]" : "hover:text-[#E9C46A]"
             }`}
           >
             Projects
@@ -116,7 +119,7 @@ export default function Header() {
           <a
             href="/contact"
             className={`transition duration-300 ${
-              isActive("/contact") ? "text-blue-600" : "hover:text-blue-600"
+              isActive("/contact") ? "text-[#E9C46A]" : "hover:text-[#E9C46A]"
             }`}
           >
             Contact

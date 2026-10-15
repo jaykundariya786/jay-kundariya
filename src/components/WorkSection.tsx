@@ -29,7 +29,7 @@ export default function WorkSection() {
   return (
     <section
       id="work"
-      className="py-20 px-6 bg-gray-50 relative overflow-hidden"
+      className="py-20 px-6 bg-[#FFFFFF] text-[#0D1321] relative overflow-hidden border-t border-[#E9C46A]/20"
     >
       <div className="absolute inset-0 bg-grid-pattern opacity-[0.03] z-0" />
 
@@ -41,13 +41,13 @@ export default function WorkSection() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true, amount: 0.3 }}
         >
-          <div className=" inline-flex uppercase items-center font-bold bg-gradient-to-r from-blue-600/20 to-blue-400/20 px-4 py-2 rounded-full text-sm tracking-wider text-blue-600 mb-6 animate-pulse">
+          <div className="inline-flex uppercase items-center font-bold bg-[#F4EDE0] border border-[#E9C46A]/50 px-4 py-2 rounded-full text-sm tracking-wider text-[#0D1321] mb-6 shadow-sm">
             My Portfolio
           </div>
-          <h2 className="text-4xl md:text-5xl uppercase tracking-wider font-bold mb-6 gradient-text">
+          <h2 className="text-4xl md:text-5xl uppercase tracking-wider font-bold mb-6 text-[#0D1321]">
             Featured Projects
           </h2>
-          <p className="text-sm md:text-md font-semibold uppercase tracking-wider text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-sm md:text-md font-semibold uppercase tracking-wider text-[#1D2D50]/80 max-w-2xl mx-auto">
             Here are some of my recent projects that showcase my skills and
             expertise in various technologies.
           </p>
@@ -64,11 +64,11 @@ export default function WorkSection() {
             <motion.div
               key={project.id}
               variants={item}
-              className="rounded-xl overflow-hidden group hover:shadow-xl transition-all duration-500 bg-white"
+              className="rounded-2xl overflow-hidden group shadow-[0_10px_30px_rgba(13,19,33,0.06)] hover:shadow-[0_16px_45px_rgba(233,196,106,0.22)] transition-all duration-500 bg-[#FFFFFF] border border-[#E9C46A]/30 hover:border-[#E9C46A]"
             >
               <div
                 className={
-                  "aspect-video w-full flex items-center justify-center group-hover:scale-105 transition-transform duration-500"
+                  "aspect-video w-full flex items-center justify-center group-hover:scale-105 transition-transform duration-500 overflow-hidden"
                 }
               >
                 <img
@@ -79,10 +79,10 @@ export default function WorkSection() {
               </div>
 
               <div className="p-6">
-                <h3 className="text-md font-bold mb-2 uppercase tracking-wider">
+                <h3 className="text-md font-bold mb-2 uppercase tracking-wider text-[#0D1321]">
                   {project.title}
                 </h3>
-                <p className="text-muted-foreground line-clamp-3 text-gray-900 mb-4 uppercase tracking-wider text-sm font-semibold">
+                <p className="line-clamp-3 text-[#1D2D50]/80 mb-4 uppercase tracking-wider text-sm font-normal">
                   {project.description}
                 </p>
 
@@ -90,7 +90,7 @@ export default function WorkSection() {
                   {project.tags.map((tag, tagIndex) => (
                     <span
                       key={tagIndex}
-                      className="px-2 py-1 uppercase tracking-wider rounded-full text-xs font-medium bg-gray-100"
+                      className="px-2.5 py-1 uppercase tracking-wider rounded-full text-xs font-mono font-medium bg-[#F4EDE0] text-[#0D1321] border border-[#E9C46A]/40"
                     >
                       {tag}
                     </span>
@@ -99,7 +99,7 @@ export default function WorkSection() {
 
                 <a
                   href={`/projects/${project.id}`}
-                  className="text-blue-600 text-sm font-medium flex items-center"
+                  className="text-[#0D1321] hover:text-[#E9C46A] text-sm font-semibold flex items-center transition-colors"
                 >
                   <span className="group-hover:mr-1 uppercase tracking-wider transition-all duration-300">
                     View Project
@@ -116,7 +116,7 @@ export default function WorkSection() {
             <motion.div className="inline-block">
               <a
                 href="/projects"
-                className="gradient-bg inline-flex uppercase tracking-wider text-sm items-center gap-2 text-white hover:text-black font-medium py-3 px-8 rounded-full shadow-lg hover:shadow-purple-300/30 hover:shadow-xl transition-all duration-300"
+                className="inline-flex uppercase tracking-wider text-sm items-center gap-2 bg-gradient-to-r from-[#E9C46A] via-[#F4D078] to-[#FFD3A5] text-[#0D1321] font-semibold py-3 px-8 rounded-full shadow-lg hover:shadow-[0_6px_22px_rgba(233,196,106,0.4)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
               >
                 <span>View all projects</span>
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />

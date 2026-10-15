@@ -3,6 +3,31 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --ink-navy: #0D1321;
+  --deep-indigo: #1D2D50;
+  --champagne-gold: #E9C46A;
+  --soft-cream: #F4EDE0;
+  --electric-cyan: #4CC9F0;
+  --mint-code: #7CF5C5;
+  --peach-glow: #FFD3A5;
+
+  --primary-color: #E9C46A;
+  --background: 0 0% 100%;
+  --foreground: 221 43% 9%;
+  --card: 0 0% 100%;
+  --card-foreground: 221 43% 9%;
+  --primary: 43 74% 67%;
+  --primary-foreground: 221 43% 9%;
+  --secondary: 39 48% 92%;
+  --secondary-foreground: 221 43% 9%;
+  --accent: 194 86% 62%;
+  --accent-foreground: 221 43% 9%;
+  --muted: 39 20% 94%;
+  --muted-foreground: 222 30% 40%;
+  --border: 43 50% 85%;
+}
+
 @layer base {
   
   html {
@@ -10,8 +35,9 @@
   }
 
   body {
-    @apply font-sans antialiased text-foreground min-h-screen w-full;
-    overflow-x: hidden;
+    @apply font-sans antialiased text-[#0D1321] min-h-screen w-full;
+    background-color: #FFFFFF;
+    overflow-x: clip;
   }
 
   main {
@@ -39,25 +65,26 @@
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-white;
+    background: #FFFFFF;
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-blue-600/50 rounded-full;
+    background: #E9C46A;
+    border-radius: 9999px;
   }
 
    ::-webkit-scrollbar-thumb:hover {
-    @apply bg-blue-600
+    background: #1D2D50;
    } 
 }
 
 @layer components {
   .gradient-text {
-    @apply bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-[#E9C46A] via-[#FFD3A5] to-[#4CC9F0] bg-clip-text text-transparent;
   }
 
   .gradient-bg {
-    @apply bg-gradient-to-r from-blue-600 to-purple-600;
+    @apply bg-gradient-to-r from-[#E9C46A] to-[#FFD3A5];
   }
 
   .container {
@@ -297,9 +324,9 @@
 
 .social-link:hover {
   transform: translateY(-5px);
-  background-color: #4353ff;
-  color: white !important;
-  box-shadow: 0 5px 15px rgba(67, 83, 255, 0.3);
+  background-color: #E9C46A;
+  color: #0D1321 !important;
+  box-shadow: 0 5px 15px rgba(233, 196, 106, 0.4);
 }
 
 @keyframes shapeFloat {
@@ -326,21 +353,25 @@
   display: flex;
   align-items: center;
   padding: 10px 25px;
-  background: #fff;
+  background: #FFFFFF;
+  border: 1px solid rgba(233, 196, 106, 0.35);
   border-radius: 8px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  color: #0D1321;
+  box-shadow: 0 3px 10px rgba(13, 19, 33, 0.05);
   transition: all 0.3s ease;
 }
 
 .skill-item:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 15px rgba(65, 105, 225, 0.1);
+  border-color: #E9C46A;
+  background: #F4EDE0;
+  box-shadow: 0 6px 15px rgba(233, 196, 106, 0.25);
 }
 
 .skill-item svg {
   font-size: 24px;
   margin-right: 10px;
-  color: #4353ff;
+  color: #E9C46A;
 }
 
 .skill-item span {
@@ -366,6 +397,7 @@
   margin-bottom: 40px;
   text-align: center;
   position: relative;
+  color: #0D1321;
   z-index: 2;
 }
 
@@ -377,7 +409,7 @@
   text-align: center;
   font-size: 80px;
   font-weight: 900;
-  color: rgba(65, 105, 225, 0.1);
+  color: rgba(233, 196, 106, 0.12);
   text-transform: uppercase;
   letter-spacing: 2px;
   z-index: 1;
@@ -404,7 +436,7 @@
 
 .info-item {
   display: flex;
-  border-bottom: 1px dashed #ddd;
+  border-bottom: 1px dashed rgba(233, 196, 106, 0.35);
   padding-bottom: 10px;
   margin-bottom: 10px;
 }
@@ -412,16 +444,16 @@
 .info-item .label {
   font-weight: 600;
   width: 120px;
-  color: #333;
+  color: #E9C46A;
 }
 
 .info-item .value {
-  color: #666;
+  color: #0D1321;
 }
 
 .download-cv-btn {
-  background-color: var(--primary-color);
-  color: white;
+  background: linear-gradient(135deg, #E9C46A 0%, #FFD3A5 100%);
+  color: #0D1321;
   font-weight: 600;
   padding: 12px 25px;
   border-radius: 30px;
@@ -439,16 +471,17 @@
 
 .download-cv-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(65, 105, 225, 0.3);
+  box-shadow: 0 6px 20px rgba(233, 196, 106, 0.4);
 }
 
 .about-info-right .about-description {
   font-size: 16px;
   line-height: 1.8;
   margin-bottom: 30px;
+  color: #1D2D50;
 }
 
 .about-description .highlight {
-  color: var(--primary-color);
+  color: #E9C46A;
   font-weight: 700;
 }
