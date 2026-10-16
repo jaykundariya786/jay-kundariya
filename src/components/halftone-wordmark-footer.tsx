@@ -23,7 +23,12 @@ export interface HalftonePalette {
   warm: string;
 }
 
-export type HalftonePreset = "night" | "paper" | "ember" | "cobalt" | "midnight-gold";
+export type HalftonePreset =
+  | "night"
+  | "paper"
+  | "ember"
+  | "cobalt"
+  | "midnight-gold";
 
 export interface FooterLink {
   label: string;
@@ -73,11 +78,11 @@ export interface HalftoneWordmarkFooterProps {
 }
 
 const PRESETS: { [K in HalftonePreset]: HalftonePalette } = {
-  "midnight-gold": { background: "#0D1321", ink: "#E9C46A", warm: "#4CC9F0" },
-  night: { background: "#0D1321", ink: "#E9C46A", warm: "#4CC9F0" },
-  paper: { background: "#F4EDE0", ink: "#0D1321", warm: "#E9C46A" },
-  ember: { background: "#0D1321", ink: "#FFD3A5", warm: "#E9C46A" },
-  cobalt: { background: "#1D2D50", ink: "#4CC9F0", warm: "#7CF5C5" },
+  "midnight-gold": { background: "#0B2545", ink: "#0E6BA8", warm: "#A9DDE8" },
+  night: { background: "#0B2545", ink: "#0E6BA8", warm: "#A9DDE8" },
+  paper: { background: "#F8FCFD", ink: "#0B2545", warm: "#0E6BA8" },
+  ember: { background: "#0B2545", ink: "#A9DDE8", warm: "#10A36B" },
+  cobalt: { background: "#0B2545", ink: "#A9DDE8", warm: "#10A36B" },
 };
 
 const DEFAULT_COLUMNS: FooterColumn[] = [
@@ -108,8 +113,14 @@ const DEFAULT_COLUMNS: FooterColumn[] = [
         href: "mailto:jaykundariya786@gmail.com",
       },
       { label: "+91 79842 23426", href: "https://wa.me/917984223426" },
-      { label: "LinkedIn /in/jay-kundariya", href: "https://linkedin.com/in/jay-kundariya" },
-      { label: "GitHub @jaykundariya786", href: "https://github.com/jaykundariya786" },
+      {
+        label: "LinkedIn /in/jay-kundariya",
+        href: "https://linkedin.com/in/jay-kundariya",
+      },
+      {
+        label: "GitHub @jaykundariya786",
+        href: "https://github.com/jaykundariya786",
+      },
     ],
   },
 ];

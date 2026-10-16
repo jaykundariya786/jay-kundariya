@@ -121,7 +121,7 @@ export default function CaseStudySection() {
   return (
     <section
       id="case-study"
-      className="relative w-full bg-[#FFFFFF] py-8 sm:py-10 lg:py-12 px-4 sm:px-6 lg:px-8 select-none border-t border-[#E9C46A]/20"
+      className="relative w-full bg-[#F8FCFD] py-8 sm:py-10 lg:py-12 px-4 sm:px-6 lg:px-8 select-none border-t border-[#0B2545]/10"
     >
       <div className="max-w-6xl mx-auto">
         {/* Compact, low-profile header */}
@@ -131,7 +131,7 @@ export default function CaseStudySection() {
               initial={{ opacity: 0, y: 5 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="inline-flex items-center gap-1.5 text-xs font-serif font-bold text-[#E9C46A] tracking-wider uppercase mb-1"
+              className="inline-flex items-center gap-1.5 text-xs font-serif font-bold text-[#0E6BA8] tracking-wider uppercase mb-1"
             >
               <Sparkles className="w-3.5 h-3.5" />
               <span>Executive Case Studies</span>
@@ -142,13 +142,13 @@ export default function CaseStudySection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4 }}
-              className="font-serif text-2xl sm:text-3xl font-bold text-[#0D1321] tracking-tight leading-tight"
+              className="font-serif text-2xl sm:text-3xl font-bold text-[#0B2545] tracking-tight leading-tight"
             >
               Proven impact. Built for hiring decisions.
             </motion.h2>
           </div>
 
-          <p className="text-xs text-[#1D2D50]/75 font-sans max-w-sm">
+          <p className="text-xs text-[#0B2545]/70 font-sans max-w-sm">
             Quick 30-second summaries of real business problems, architecture solutions, and measurable outcomes.
           </p>
         </div>
@@ -166,55 +166,55 @@ export default function CaseStudySection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.1 }}
                 whileHover={{ y: -4 }}
-                className="bg-[#F4EDE0]/65 hover:bg-[#F4EDE0]/90 border border-[#E9C46A]/40 hover:border-[#E9C46A]/80 rounded-2xl p-4 sm:p-5 flex flex-col justify-between shadow-[0_4px_20px_rgba(13,19,33,0.03)] hover:shadow-[0_10px_30px_rgba(233,196,106,0.18)] transition-all duration-300 relative group"
+                className="bg-white hover:bg-[#F8FCFD] border border-[#0B2545]/10 hover:border-[#0E6BA8]/40 rounded-2xl p-4 sm:p-5 flex flex-col justify-between shadow-[0_4px_20px_rgba(11,37,69,0.03)] hover:shadow-[0_10px_30px_rgba(14,107,168,0.12)] transition-all duration-300 relative group"
               >
                 <div>
                   {/* Card Header: Icon + Domain + Badge */}
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-2">
-                      <div className="w-7 h-7 rounded-lg bg-[#0D1321] text-[#E9C46A] flex items-center justify-center shadow-xs">
+                      <div className="w-7 h-7 rounded-lg bg-[#0B2545] text-[#A9DDE8] flex items-center justify-center shadow-xs">
                         <Icon className="w-3.5 h-3.5" />
                       </div>
-                      <span className="text-[11px] font-sans font-semibold text-[#1D2D50]/80">
+                      <span className="text-[11px] font-sans font-semibold text-[#0B2545]/80">
                         {study.domain}
                       </span>
                     </div>
 
-                    <span className="text-[10px] font-mono font-semibold bg-[#FFFFFF] border border-[#E9C46A]/40 text-[#0D1321] px-2 py-0.5 rounded-full shadow-xs">
+                    <span className="text-[10px] font-mono font-semibold bg-[#A9DDE8]/20 border border-[#A9DDE8]/50 text-[#0B2545] px-2 py-0.5 rounded-full shadow-xs">
                       {study.badge}
                     </span>
                   </div>
 
                   {/* Title */}
-                  <h3 className="font-serif font-bold text-base sm:text-lg text-[#0D1321] tracking-tight leading-snug mb-3 group-hover:text-[#1D2D50] transition-colors">
+                  <h3 className="font-serif font-bold text-base sm:text-lg text-[#0B2545] tracking-tight leading-snug mb-3 group-hover:text-[#0E6BA8] transition-colors">
                     {study.title}
                   </h3>
 
                   {/* Main Point Pill */}
-                  <div className="bg-[#FFFFFF]/90 border border-[#E9C46A]/35 rounded-xl p-2.5 mb-3.5 shadow-xs">
-                    <div className="flex items-center gap-1.5 text-[10px] font-mono font-bold text-[#E9C46A] uppercase mb-0.5">
-                      <Zap className="w-3 h-3 text-[#E9C46A]" />
+                  <div className="bg-[#F8FCFD] border border-[#A9DDE8]/40 rounded-xl p-2.5 mb-3.5 shadow-xs">
+                    <div className="flex items-center gap-1.5 text-[10px] font-mono font-bold text-[#0E6BA8] uppercase mb-0.5">
+                      <Zap className="w-3 h-3 text-[#0E6BA8]" />
                       <span>Main Takeaway</span>
                     </div>
-                    <p className="text-xs text-[#0D1321] font-medium leading-relaxed">
+                    <p className="text-xs text-[#0B2545] font-medium leading-relaxed">
                       {study.mainPoint}
                     </p>
                   </div>
 
                   {/* Minimal 2-Line Friction vs Delivered */}
                   <div className="space-y-2 mb-4 text-xs leading-snug">
-                    <div className="flex items-start gap-2 text-[#1D2D50]/85">
+                    <div className="flex items-start gap-2 text-[#0B2545]/80">
                       <span className="w-1.5 h-1.5 rounded-full bg-rose-500 mt-1.5 shrink-0" />
                       <span>
-                        <strong className="text-[#0D1321]">Friction: </strong>
+                        <strong className="text-[#0B2545]">Friction: </strong>
                         {study.friction}
                       </span>
                     </div>
 
-                    <div className="flex items-start gap-2 text-[#1D2D50]/85">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1.5 shrink-0" />
+                    <div className="flex items-start gap-2 text-[#0B2545]/80">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#10A36B] mt-1.5 shrink-0" />
                       <span>
-                        <strong className="text-[#0D1321]">Delivered: </strong>
+                        <strong className="text-[#0B2545]">Delivered: </strong>
                         {study.delivered}
                       </span>
                     </div>
@@ -222,22 +222,22 @@ export default function CaseStudySection() {
                 </div>
 
                 {/* Card Footer: Big Metric & Quick Brief Button */}
-                <div className="pt-3 border-t border-[#E9C46A]/25 flex items-end justify-between">
+                <div className="pt-3 border-t border-[#0B2545]/8 flex items-end justify-between">
                   <div>
-                    <span className="font-serif font-bold text-2xl lg:text-3xl text-[#0D1321] block leading-none">
+                    <span className="font-serif font-bold text-2xl lg:text-3xl text-[#0B2545] block leading-none">
                       {study.metric}
                     </span>
-                    <span className="text-[11px] font-semibold text-[#0D1321] block mt-1 leading-tight">
+                    <span className="text-[11px] font-semibold text-[#0B2545] block mt-1 leading-tight">
                       {study.metricLabel}
                     </span>
-                    <span className="text-[9px] text-[#1D2D50]/60 font-sans block leading-tight">
+                    <span className="text-[9px] text-[#0B2545]/60 font-sans block leading-tight">
                       {study.metricContext}
                     </span>
                   </div>
 
                   <button
                     onClick={() => setSelectedStudy(study)}
-                    className="inline-flex items-center gap-1 text-[11px] font-serif font-bold text-[#0D1321] hover:text-[#E9C46A] transition-colors py-1 px-2.5 rounded-lg hover:bg-[#FFFFFF]/70 cursor-pointer"
+                    className="inline-flex items-center gap-1 text-[11px] font-serif font-bold text-[#0B2545] hover:text-[#0E6BA8] transition-colors py-1 px-2.5 rounded-lg hover:bg-[#A9DDE8]/20 cursor-pointer"
                   >
                     <span>Quick Brief</span>
                     <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
@@ -265,32 +265,32 @@ export default function CaseStudySection() {
               exit={{ scale: 0.95, opacity: 0, y: 10 }}
               transition={{ duration: 0.2 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-lg bg-[#FFFFFF] border-2 border-[#E9C46A]/50 rounded-2xl p-5 sm:p-6 shadow-2xl"
+              className="relative w-full max-w-lg bg-white border-2 border-[#0E6BA8]/30 rounded-2xl p-5 sm:p-6 shadow-2xl"
             >
               {/* Close Button */}
               <button
                 onClick={() => setSelectedStudy(null)}
-                className="absolute top-4 right-4 w-7 h-7 rounded-full bg-[#F4EDE0] border border-[#E9C46A]/40 flex items-center justify-center text-[#0D1321] hover:bg-[#E9C46A] transition-colors cursor-pointer"
+                className="absolute top-4 right-4 w-7 h-7 rounded-full bg-[#F8FCFD] border border-[#A9DDE8]/40 flex items-center justify-center text-[#0B2545] hover:bg-[#0E6BA8] hover:text-white transition-colors cursor-pointer"
               >
                 <X className="w-3.5 h-3.5" />
               </button>
 
               {/* Eyebrow */}
               <div className="flex items-center gap-2 mb-2">
-                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-[#0D1321] text-[#E9C46A]">
+                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-[#0B2545] text-[#A9DDE8]">
                   Executive Briefing
                 </span>
-                <span className="text-xs font-serif font-semibold text-[#1D2D50]/70">
+                <span className="text-xs font-serif font-semibold text-[#0B2545]/70">
                   {selectedStudy.domain}
                 </span>
               </div>
 
               {/* Title */}
-              <h3 className="font-serif text-xl font-bold text-[#0D1321] mb-2 leading-snug">
+              <h3 className="font-serif text-xl font-bold text-[#0B2545] mb-2 leading-snug">
                 {selectedStudy.title}
               </h3>
 
-              <p className="text-xs text-[#0D1321] font-medium bg-[#F4EDE0]/60 p-2.5 rounded-xl border border-[#E9C46A]/30 mb-4">
+              <p className="text-xs text-[#0B2545] font-medium bg-[#F8FCFD] p-2.5 rounded-xl border border-[#A9DDE8]/40 mb-4">
                 <strong>Core Win: </strong>
                 {selectedStudy.mainPoint}
               </p>
@@ -298,30 +298,30 @@ export default function CaseStudySection() {
               {/* 3 Bulleted Main Points for Hiring Members */}
               <div className="space-y-3 mb-5">
                 {selectedStudy.executiveBullets.map((bullet, i) => (
-                  <div key={i} className="flex items-start gap-2.5 text-xs text-[#1D2D50]">
-                    <CheckCircle2 className="w-4 h-4 text-[#10B981] shrink-0 mt-0.5" />
+                  <div key={i} className="flex items-start gap-2.5 text-xs text-[#0B2545]">
+                    <CheckCircle2 className="w-4 h-4 text-[#10A36B] shrink-0 mt-0.5" />
                     <div>
-                      <strong className="text-[#0D1321] block">{bullet.title}</strong>
-                      <span className="text-[#1D2D50]/85 leading-relaxed">{bullet.description}</span>
+                      <strong className="text-[#0B2545] block">{bullet.title}</strong>
+                      <span className="text-[#0B2545]/80 leading-relaxed">{bullet.description}</span>
                     </div>
                   </div>
                 ))}
               </div>
 
               {/* Bottom Stat & Close */}
-              <div className="pt-3 border-t border-[#E9C46A]/25 flex items-center justify-between">
+              <div className="pt-3 border-t border-[#0B2545]/10 flex items-center justify-between">
                 <div>
-                  <span className="font-serif font-bold text-2xl text-[#0D1321] block leading-none">
+                  <span className="font-serif font-bold text-2xl text-[#0B2545] block leading-none">
                     {selectedStudy.metric}
                   </span>
-                  <span className="text-[10px] text-[#1D2D50]/70 font-sans">
+                  <span className="text-[10px] text-[#0B2545]/70 font-sans">
                     {selectedStudy.metricLabel} ({selectedStudy.metricContext})
                   </span>
                 </div>
 
                 <button
                   onClick={() => setSelectedStudy(null)}
-                  className="px-4 py-1.5 rounded-full bg-[#0D1321] text-[#E9C46A] text-xs font-serif font-bold hover:bg-[#1D2D50] transition-colors cursor-pointer"
+                  className="px-4 py-1.5 rounded-full bg-[#0E6BA8] text-white text-xs font-serif font-bold hover:bg-[#0E6BA8]/90 transition-colors cursor-pointer"
                 >
                   Got It
                 </button>

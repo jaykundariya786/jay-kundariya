@@ -4,7 +4,6 @@ import StatsSection from "../components/StatsSection";
 import AboutSection from "../components/AboutSection";
 import ProjectsSection from "../components/ProjectsSection";
 import ServicesSection from "../components/ServicesSection";
-import CaseStudySection from "../components/CaseStudySection";
 import TechStackSection from "../components/TechStackSection";
 import ExperienceSection from "../components/ExperienceSection";
 import ProcessSection from "../components/ProcessSection";
@@ -14,7 +13,7 @@ import NewFooter from "../components/NewFooter";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#FFFFFF] relative overflow-x-clip">
+    <div className="min-h-screen bg-[#F8FCFD] relative overflow-x-clip text-[#0B2545]">
       {/* 1. Sticky pill Navbar */}
       <Navbar />
 

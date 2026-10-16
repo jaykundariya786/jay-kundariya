@@ -1,269 +1,318 @@
 import React from "react";
-import { motion } from "framer-motion";
 import {
-  Compass,
-  ArrowRight,
+  Zap,
   Sparkles,
-  MapPin,
-  Clock,
+  ArrowUp,
   Mail,
+  MessageCircle,
   Linkedin,
   Github,
-  MessageCircle,
+  Twitter,
+  Globe,
 } from "lucide-react";
 import HalftoneWordmarkFooter from "./halftone-wordmark-footer";
+import footerLandscape from "../assets/footer-landscape.jpg";
 
-interface Waypoint {
-  num: string;
-  name: string;
-  tag: string;
-  targetId: string;
+interface FooterLink {
+  label: string;
+  href: string;
+  isExternal?: boolean;
 }
 
-const WAYPOINTS: Waypoint[] = [
-  {
-    num: "01",
-    name: "The Story",
-    tag: "Who I Am",
-    targetId: "about",
-  },
-  {
-    num: "02",
-    name: "Shipped Apps",
-    tag: "20+ Case Studies",
-    targetId: "projects",
-  },
-  {
-    num: "03",
-    name: "Mobile Craft",
-    tag: "React Native & Arch",
-    targetId: "services",
-  },
-  {
-    num: "04",
-    name: "Track Record",
-    tag: "5+ Yrs Milestones",
-    targetId: "experience",
-  },
-  {
-    num: "05",
-    name: "Dispatch Point",
-    tag: "Start Your App",
-    targetId: "contact",
-  },
-];
+interface FooterColumn {
+  title: string;
+  links: FooterLink[];
+}
 
-const DIRECT_CHANNELS = [
+const FOOTER_COLUMNS: FooterColumn[] = [
   {
-    icon: MessageCircle,
-    label: "WhatsApp",
-    value: "+91 79842 23426",
-    href: "https://wa.me/917984223426",
-    color: "#E9C46A",
-  },
-  {
-    icon: Mail,
-    label: "Email",
-    value: "jaykundariya786@gmail.com",
-    href: "mailto:jaykundariya786@gmail.com",
-    color: "#FFD3A5",
-  },
-  {
-    icon: Linkedin,
-    label: "LinkedIn",
-    value: "/in/jay-kundariya",
-    href: "https://linkedin.com/in/jay-kundariya",
-    color: "#4CC9F0",
-  },
-  {
-    icon: Github,
-    label: "GitHub",
-    value: "@jaykundariya786",
-    href: "https://github.com/jaykundariya786",
-    color: "#7CF5C5",
-  },
-];
-
-const FOOTER_COLUMNS = [
-  {
-    title: "Portfolio Waypoints",
+    title: "Product / Apps",
     links: [
-      { label: "01 · The Story", href: "#about" },
-      { label: "02 · 20+ Shipped Apps", href: "#projects" },
-      { label: "03 · Mobile Craft", href: "#services" },
-      { label: "04 · Experience Timeline", href: "#experience" },
-      { label: "05 · Start a Project", href: "#contact" },
+      { label: "Overview", href: "#projects" },
+      { label: "FinTech Mobile", href: "#projects" },
+      { label: "Health & Telehealth", href: "#projects" },
+      { label: "Multi-Store POS", href: "#projects" },
+      { label: "Social & Live Audio", href: "#projects" },
+      { label: "Smart Home IoT", href: "#projects" },
     ],
   },
   {
-    title: "Mobile Architecture",
+    title: "Expertise",
     links: [
-      { label: "Cross-Platform React Native", href: "#services" },
-      { label: "Expo, EAS & Instant OTA", href: "#services" },
-      { label: "Offline-First SQLite Architecture", href: "#services" },
-      { label: "60 FPS Native Performance", href: "#services" },
+      { label: "React Native (iOS & Android)", href: "#services" },
+      { label: "Offline SQLite & Sync", href: "#services" },
+      { label: "Expo & Instant EAS OTA", href: "#services" },
+      { label: "60 FPS Native Gestures", href: "#services" },
+      { label: "Custom Native Modules", href: "#services" },
     ],
   },
   {
-    title: "Direct Dispatch",
+    title: "Company",
     links: [
-      { label: "jaykundariya786@gmail.com", href: "mailto:jaykundariya786@gmail.com" },
-      { label: "+91 79842 23426 (WhatsApp)", href: "https://wa.me/917984223426" },
-      { label: "LinkedIn /in/jay-kundariya", href: "https://linkedin.com/in/jay-kundariya" },
-      { label: "GitHub @jaykundariya786", href: "https://github.com/jaykundariya786" },
+      { label: "The Story & Craft", href: "#about" },
+      { label: "20+ Case Studies", href: "#projects" },
+      { label: "Engineering Method", href: "#process" },
+      { label: "Career Milestones", href: "#experience" },
+      { label: "Client Testimonials", href: "#testimonials" },
+    ],
+  },
+  {
+    title: "Connect",
+    links: [
+      {
+        label: "WhatsApp Direct",
+        href: "https://wa.me/917984223426",
+        isExternal: true,
+      },
+      {
+        label: "jaykundariya786@gmail.com",
+        href: "mailto:jaykundariya786@gmail.com",
+        isExternal: true,
+      },
+      {
+        label: "LinkedIn Profile",
+        href: "https://linkedin.com/in/jay-kundariya",
+        isExternal: true,
+      },
+      {
+        label: "GitHub Repositories",
+        href: "https://github.com/jaykundariya786",
+        isExternal: true,
+      },
+      { label: "Rajkot, India (IST)", href: "#contact" },
     ],
   },
 ];
 
 export default function NewFooter() {
+  // Mode switcher for bottom artwork: 'hybrid' (both), 'image' (landscape only), 'halftone' (canvas only)
+  const bottomMode: "hybrid" | "image" | "halftone" = "hybrid";
+
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
       el.scrollIntoView({ behavior: "smooth" });
+    } else if (window.location.pathname !== "/") {
+      window.location.href = `/#${id}`;
     }
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <footer className="relative w-full bg-[#0D1321] text-[#F4EDE0] overflow-hidden border-t border-[#E9C46A]/20">
-      
-      {/* Subtle ambient warmth */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[220px] bg-[#E9C46A]/5 rounded-full blur-[100px] pointer-events-none" />
+    <footer className="relative w-full select-none">
+      {/* Outer subtle glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[150px] bg-[#0E6BA8]/8 rounded-full blur-[100px] pointer-events-none" />
 
       {/* ======================================================== */}
-      {/* SECTION 1: The Journey Waypoints Trail (Low wide spacing)*/}
+      {/* FLOATING CARD CONTAINER WITH ROUNDED CORNERS             */}
       {/* ======================================================== */}
-      <div className="max-w-[1040px] mx-auto w-full px-4 sm:px-6 pt-12 sm:pt-14 pb-8 relative z-10">
-        
-        {/* Top Trail Header with Status */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-8 border-b border-[#E9C46A]/15">
-          <div className="flex items-center gap-3">
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ repeat: Infinity, duration: 16, ease: "linear" }}
-              className="w-8 h-8 rounded-xl bg-[#E9C46A]/15 border border-[#E9C46A]/30 flex items-center justify-center text-[#E9C46A]"
-            >
-              <Compass className="w-4 h-4" />
-            </motion.div>
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="font-serif font-bold text-base text-[#F4EDE0] tracking-tight">
-                  Portfolio Journey Trail
-                </span>
-                <span className="text-[10px] font-mono text-[#E9C46A] px-2 py-0.5 rounded-full bg-[#E9C46A]/10 border border-[#E9C46A]/20">
-                  Waypoints 01—05
-                </span>
-              </div>
-              <p className="text-xs text-[#F4EDE0]/60 mt-0.5">
-                Navigate the milestones of crafting top-tier mobile experiences.
+      <div className="bg-[#F8FCFD] text-[#0B2545] border border-[#A9DDE8]/40 shadow-[0_24px_80px_rgba(11,37,69,0.12)] overflow-hidden relative">
+        {/* Content Area */}
+        <div className="p-6 sm:p-10 lg:p-12 relative z-10 bg-[#F8FCFD]">
+          {/* ======================================================== */}
+          {/* 1. TOP CTA ROW                                           */}
+          {/* ======================================================== */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-5 pb-8 sm:pb-10 border-b border-[#0B2545]/8">
+            <div className="max-w-xl">
+              <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#0B2545] tracking-tight">
+                Start your mobile project today
+              </h3>
+              <p className="text-xs sm:text-sm text-[#0B2545]/70 mt-1.5 leading-relaxed">
+                Have an app idea or need to scale your existing product? Let’s
+                build something extraordinary with zero compromise on quality.
               </p>
             </div>
+
+            <button
+              onClick={() => scrollTo("contact")}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#0E6BA8] hover:bg-[#0E6BA8]/90 text-white text-xs font-semibold shadow-md hover:shadow-lg transition-all shrink-0 cursor-pointer active:scale-95"
+            >
+              <Zap className="w-3.5 h-3.5 text-[#A9DDE8] fill-[#A9DDE8]" />
+              <span>Get started</span>
+            </button>
           </div>
 
-          {/* Current coordinates & live availability */}
-          <div className="flex items-center gap-3 text-xs bg-[#FAF8F5]/5 border border-[#E9C46A]/20 rounded-xl px-3.5 py-2">
-            <div className="flex items-center gap-1.5 text-[#F4EDE0]/70">
-              <MapPin className="w-3.5 h-3.5 text-[#E9C46A]" />
-              <span>Rajkot, India</span>
+          {/* ======================================================== */}
+          {/* 2. MULTI-COLUMN DIRECTORY WITH BRAND                     */}
+          {/* ======================================================== */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8 py-10 sm:py-12 border-b border-[#0B2545]/8">
+            {/* Brand Column (spans 2 cols on lg) */}
+            <div className="col-span-2">
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-7 h-7 rounded-lg bg-[#0B2545] text-[#A9DDE8] flex items-center justify-center shadow-xs">
+                  <Sparkles className="w-4 h-4" />
+                </div>
+                <span className="font-serif font-bold text-lg text-[#0B2545] tracking-tight">
+                  Jay Kundariya
+                </span>
+              </div>
+
+              <p className="text-xs text-[#0B2545]/70 leading-relaxed max-w-sm mb-5">
+                The full-stack mobile craftsman shaping 60 FPS, offline-first
+                iOS and Android applications for high-growth startups and global
+                teams.
+              </p>
             </div>
-            <span className="w-1 h-1 rounded-full bg-[#E9C46A]/40" />
-            <div className="flex items-center gap-1.5">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#7CF5C5] opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#10B981]" />
-              </span>
-              <span className="text-[#F4EDE0] font-medium text-[11px]">
-                Open for Q4
-              </span>
-            </div>
-          </div>
-        </div>
 
-        {/* The Interactive Waypoints Path (Desktop & Mobile) */}
-        <div className="py-7 relative">
-          
-          {/* Animated Connecting Dotted Trail Line (Desktop) */}
-          <div className="hidden md:block absolute top-[44px] left-[6%] right-[6%] h-[2px] bg-gradient-to-r from-[#E9C46A]/20 via-[#4CC9F0]/30 to-[#E9C46A]/20 z-0">
-            <motion.div
-              animate={{ x: ["0%", "100%"] }}
-              transition={{ repeat: Infinity, duration: 4, ease: "linear" }}
-              className="w-16 h-full bg-gradient-to-r from-transparent via-[#E9C46A] to-transparent"
-            />
-          </div>
-
-          {/* Waypoints Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3.5 sm:gap-4 relative z-10">
-            {WAYPOINTS.map((wp, idx) => (
-              <motion.button
-                key={wp.num}
-                onClick={() => scrollTo(wp.targetId)}
-                whileHover={{ y: -3, scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="group relative flex flex-col items-start p-3 sm:p-3.5 rounded-2xl bg-[#0D1321] border border-[#E9C46A]/20 hover:border-[#E9C46A] hover:bg-[#1D2D50]/40 transition-all text-left shadow-sm cursor-pointer"
-              >
-                {/* Top Number Node */}
-                <div className="flex items-center justify-between w-full mb-2">
-                  <div className="w-6 h-6 rounded-full bg-[#E9C46A]/15 border border-[#E9C46A]/40 text-[#E9C46A] text-[10px] font-mono font-bold flex items-center justify-center group-hover:bg-[#E9C46A] group-hover:text-[#0D1321] transition-colors">
-                    {wp.num}
-                  </div>
-                  <ArrowRight className="w-3 h-3 text-[#E9C46A]/40 group-hover:text-[#E9C46A] group-hover:translate-x-0.5 transition-all" />
-                </div>
-
-                <div className="font-serif font-bold text-xs sm:text-sm text-[#F4EDE0] group-hover:text-[#E9C46A] transition-colors">
-                  {wp.name}
-                </div>
-                <div className="text-[10px] text-[#F4EDE0]/50 group-hover:text-[#F4EDE0]/80 mt-0.5 transition-colors">
-                  {wp.tag}
-                </div>
-              </motion.button>
+            {/* Dynamic Link Columns */}
+            {FOOTER_COLUMNS.map((col) => (
+              <div key={col.title} className="col-span-1">
+                <h4 className="text-xs font-semibold text-gray-900 tracking-wider uppercase mb-3.5 font-sans">
+                  {col.title}
+                </h4>
+                <ul className="space-y-2.5 text-xs">
+                  {col.links.map((link) => (
+                    <li key={link.label}>
+                      {link.isExternal ? (
+                        <a
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-[#0B2545]/60 hover:text-[#0E6BA8] font-medium transition-colors inline-block"
+                        >
+                          {link.label}
+                        </a>
+                      ) : (
+                        <button
+                          onClick={() => scrollTo(link.href.replace("#", ""))}
+                          className="text-[#0B2545]/60 hover:text-[#0E6BA8] font-medium transition-colors text-left cursor-pointer"
+                        >
+                          {link.label}
+                        </button>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             ))}
           </div>
+
+          {/* ======================================================== */}
+          {/* 3. COPYRIGHT & SOCIALS ROW                               */}
+          {/* ======================================================== */}
+          <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#0B2545]/60">
+            <div>
+              <span>
+                © {new Date().getFullYear()} Jay Kundariya. All rights reserved.
+              </span>
+            </div>
+
+            {/* Middle Badge: Made with love */}
+            <div className="flex items-center gap-1.5 text-[#0B2545]/70 font-medium">
+              <span className="text-[#10A36B]">✦</span>
+              <span>Crafted with care in India · Delivered Worldwide</span>
+            </div>
+
+            {/* Social Icons Strip */}
+            <div className="flex flex-wrap items-center justify-center sm:justify-end gap-2.5 sm:gap-3.5">
+              <a
+                href="https://twitter.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Twitter / X"
+                className="text-[#0B2545]/50 hover:text-[#0E6BA8] transition-colors"
+              >
+                <Twitter className="w-4 h-4" />
+              </a>
+
+              <a
+                href="https://github.com/jaykundariya786"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                className="text-[#0B2545]/50 hover:text-[#0E6BA8] transition-colors"
+              >
+                <Github className="w-4 h-4" />
+              </a>
+
+              <a
+                href="https://wa.me/917984223426"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
+                className="text-[#0B2545]/50 hover:text-[#0E6BA8] transition-colors"
+              >
+                <MessageCircle className="w-4 h-4" />
+              </a>
+
+              <a
+                href="https://linkedin.com/in/jay-kundariya"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="text-[#0B2545]/50 hover:text-[#0E6BA8] transition-colors"
+              >
+                <Linkedin className="w-4 h-4" />
+              </a>
+
+              <a
+                href="mailto:jaykundariya786@gmail.com"
+                aria-label="Email"
+                className="text-[#0B2545]/50 hover:text-[#0E6BA8] transition-colors"
+              >
+                <Mail className="w-4 h-4" />
+              </a>
+
+              <a
+                href="https://jaykundariya.com"
+                aria-label="Portfolio"
+                className="text-[#0B2545]/50 hover:text-[#0E6BA8] transition-colors"
+              >
+                <Globe className="w-4 h-4" />
+              </a>
+
+              <span className="w-px h-3 bg-[#0B2545]/10 mx-1" />
+
+              <button
+                onClick={scrollToTop}
+                className="inline-flex items-center gap-1 text-[#0B2545]/70 hover:text-[#0E6BA8] font-semibold transition-colors cursor-pointer"
+              >
+                <span>Back to top</span>
+                <ArrowUp className="w-3.5 h-3.5" />
+              </button>
+            </div>
+          </div>
         </div>
 
-        {/* Quick Direct Reachout Strip */}
-        <div className="pt-2 pb-6 border-b border-[#E9C46A]/15 flex flex-wrap items-center justify-between gap-3">
-          <div className="flex items-center gap-2 text-[11px] text-[#F4EDE0]/60">
-            <Sparkles className="w-3.5 h-3.5 text-[#E9C46A]" />
-            <span>Fast-track communication:</span>
-          </div>
-          <div className="flex flex-wrap items-center gap-2">
-            {DIRECT_CHANNELS.map((item) => {
-              const Icon = item.icon;
-              return (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  target={item.href.startsWith("http") ? "_blank" : undefined}
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#FAF8F5]/5 border border-[#E9C46A]/20 hover:border-[#E9C46A] hover:bg-[#E9C46A]/10 text-xs text-[#F4EDE0] transition-all group"
-                >
-                  <Icon className="w-3.5 h-3.5" style={{ color: item.color }} />
-                  <span className="font-medium text-[11px]">{item.label}</span>
-                </a>
-              );
-            })}
+        <div className="relative w-full h-[220px] sm:h-[280px] md:h-[340px] overflow-hidden border-t border-[#0B2545]/10 group">
+          <img
+            src={footerLandscape}
+            alt="Alpine landscape"
+            className="absolute inset-0 w-full h-full object-cover object-bottom transition-all duration-500"
+          />
+
+          <div className="absolute top-0 inset-x-0 h-16 bg-gradient-to-b from-[#F8FCFD] to-transparent pointer-events-none z-10" />
+
+          <div
+            className={`absolute inset-0 pointer-events-auto transition-opacity duration-300 ${
+              bottomMode === "hybrid"
+                ? "opacity-75 mix-blend-multiply"
+                : "opacity-100"
+            }`}
+          >
+            <HalftoneWordmarkFooter
+              wordmark="Jay Kundariya"
+              label=""
+              meta=""
+              columns={[]}
+              backToTop={false}
+              preset="paper"
+              palette={{
+                background: "#F8FCFD",
+                ink: "#0B2545",
+                warm: "#0E6BA8",
+              }}
+              height="340px"
+              dotGap={6}
+              radius={85}
+              interactive={true}
+            />
           </div>
         </div>
-
       </div>
-
-      {/* ======================================================== */}
-      {/* SECTION 2: Halftone Wordmark Interactive Dot Canvas      */}
-      {/* ======================================================== */}
-      <div className="relative w-full border-t border-[#E9C46A]/10">
-        <HalftoneWordmarkFooter
-          wordmark="Jay Kundariya"
-          label="Jay Kundariya"
-          meta="© 2026 · Senior React Native Specialist · Worldwide Delivery"
-          columns={FOOTER_COLUMNS}
-          preset="midnight-gold"
-          height="380px"
-          crop={0}
-          dotGap={6}
-          radius={85}
-          backToTop={true}
-        />
-      </div>
-
     </footer>
   );
 }

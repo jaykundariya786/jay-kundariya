@@ -1,243 +1,150 @@
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { Search, PenTool, Code2, Rocket, Clock, Sparkles } from "lucide-react";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import {
+  Compass,
+  Palette,
+  Smartphone,
+  Rocket,
+  Sparkles,
+} from "lucide-react";
 
-const steps = [
+interface StepItem {
+  num: string;
+  title: string;
+  icon: React.ElementType;
+}
+
+const STEPS: StepItem[] = [
   {
     num: "01",
-    icon: Search,
-    title: "Discover",
-    subtitle: "Define the problem",
-    copy: "Deep-dive on goals, user personas, platform constraints, and success metrics. No assumption left unchallenged.",
-    color: "#E9C46A",
+    title: "Listen & Plan",
+    icon: Compass,
   },
   {
     num: "02",
-    icon: PenTool,
-    title: "Design",
-    subtitle: "Map the solution",
-    copy: "Wireframes, component architecture, and API contracts locked before a single line of production code is written.",
-    color: "#4CC9F0",
+    title: "Prototype",
+    icon: Palette,
   },
   {
     num: "03",
-    icon: Code2,
-    title: "Build",
-    subtitle: "Ship incrementally",
-    copy: "Clean TypeScript, weekly live demos, and continuous integration so you always see real progress — never guesses.",
-    color: "#7CF5C5",
+    title: "Build & Refine",
+    icon: Smartphone,
   },
   {
     num: "04",
+    title: "Launch & Ship",
     icon: Rocket,
-    title: "Ship",
-    subtitle: "Launch & hand over",
-    copy: "Full QA, store submission, OTA update pipeline, and a documented handover so your team owns it from day one.",
-    color: "#FFD3A5",
-    special: true,
   },
 ];
 
 export default function ProcessSection() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start 0.8", "end 0.6"],
-  });
-  const lineScale = useTransform(scrollYProgress, [0, 1], [0, 1]);
+  const [activeStep, setActiveStep] = useState<number>(0);
 
   return (
     <section
       id="process"
-      ref={sectionRef}
-      className="relative w-full min-h-screen flex flex-col justify-center bg-[#FFFFFF] py-20 sm:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      className="relative w-full bg-[#F8FCFD] py-12 sm:py-20 lg:py-24 px-3 sm:px-6 overflow-hidden border-y border-[#A9DDE8]/40 select-none"
     >
-      {/* Subtle decorative background */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-[0.025] pointer-events-none" />
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#E9C46A]/8 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#4CC9F0]/6 rounded-full blur-[100px] pointer-events-none" />
+      {/* Subtle ambient lighting */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] sm:w-[600px] h-[200px] sm:h-[260px] bg-[#0E6BA8]/10 rounded-full blur-[80px] sm:blur-[110px] pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto w-full relative z-10">
-        {/* Section Header */}
-        <div className="flex flex-col items-center text-center mb-16 sm:mb-20">
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 bg-[#F4EDE0] border border-[#E9C46A]/50 px-4 py-1.5 rounded-full text-xs font-mono font-semibold text-[#0D1321] uppercase tracking-wider mb-4 shadow-sm"
-          >
-            <Sparkles className="w-3.5 h-3.5 text-[#E9C46A]" />
-            <span>How I Work</span>
-          </motion.div>
-
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#0D1321] tracking-tight"
-          >
-            From idea to shipped, fast.
-          </motion.h2>
-
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-sm sm:text-base text-[#1D2D50]/75 mt-3 max-w-xl"
-          >
-            A lean, transparent process refined across 5 companies and 20+ shipped apps.
-          </motion.p>
-        </div>
-
-        {/* Desktop: Horizontal 4-step row */}
-        <div className="hidden lg:block relative">
-          {/* Progress connector line */}
-          <div className="absolute top-[52px] left-[12%] right-[12%] h-px bg-[#E9C46A]/15 overflow-hidden">
-            <motion.div
-              className="h-full bg-gradient-to-r from-[#E9C46A] via-[#4CC9F0] to-[#FFD3A5]"
-              style={{ scaleX: lineScale, transformOrigin: "left" }}
-            />
+      <div className="max-w-[880px] mx-auto w-full relative z-10 text-center">
+        
+        {/* ======================================================== */}
+        {/* HEADER: Clean, minimal & elegant                         */}
+        {/* ======================================================== */}
+        <div className="mb-10 sm:mb-16">
+          <div className="inline-flex items-center gap-1.5 text-[10px] sm:text-[11px] font-serif uppercase tracking-[0.18em] text-[#0B2545]/70 mb-2">
+            <Sparkles className="w-3.5 h-3.5 text-[#10A36B]" />
+            <span>The Process</span>
           </div>
 
-          <div className="grid grid-cols-4 gap-6">
-            {steps.map((step, i) => {
+          <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0B2545] tracking-tight px-2">
+            Four steps from idea to launch.
+          </h2>
+        </div>
+
+        {/* ======================================================== */}
+        {/* THE CIRCLE PATH: Fully responsive on mobile & desktop    */}
+        {/* ======================================================== */}
+        <div className="relative py-4 max-w-[820px] mx-auto w-full">
+          
+          {/* Base connecting line passing through center of circles */}
+          <div className="absolute top-6 sm:top-8 md:top-10 left-[12.5%] right-[12.5%] h-[2px] bg-[#A9DDE8]/40 z-0 pointer-events-none" />
+
+          {/* Active hover connecting progress beam */}
+          <motion.div
+            className="absolute top-6 sm:top-8 md:top-10 left-[12.5%] h-[2px] bg-gradient-to-r from-[#0E6BA8] via-[#A9DDE8] to-[#10A36B] z-0 pointer-events-none"
+            animate={{
+              width: `${(activeStep / (STEPS.length - 1)) * 75}%`,
+            }}
+            transition={{ duration: 0.35, ease: "easeOut" }}
+          />
+
+          {/* 4 Connected Circular Step Nodes */}
+          <div className="grid grid-cols-4 relative z-10 w-full">
+            {STEPS.map((step, idx) => {
               const Icon = step.icon;
+              const isActive = activeStep === idx;
+              const isPast = idx < activeStep;
+
               return (
-                <motion.div
+                <div
                   key={step.num}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                  transition={{ duration: 0.6, delay: i * 0.12 }}
-                  className="flex flex-col items-center text-center group"
+                  onMouseEnter={() => setActiveStep(idx)}
+                  onClick={() => setActiveStep(idx)}
+                  className="flex flex-col items-center group cursor-pointer px-1 min-w-0"
                 >
-                  {/* Icon circle with number badge */}
-                  <div className="relative mb-8">
-                    <div
-                      className="w-[104px] h-[104px] rounded-full border-2 flex items-center justify-center transition-all duration-300 group-hover:scale-110 shadow-lg"
-                      style={{
-                        borderColor: `${step.color}60`,
-                        backgroundColor: "#FFFFFF",
-                        boxShadow: `0 0 0 6px ${step.color}12, 0 12px 36px ${step.color}20`,
-                      }}
-                    >
-                      <div
-                        className="w-[76px] h-[76px] rounded-full flex items-center justify-center"
-                        style={{ backgroundColor: `${step.color}15` }}
-                      >
-                        <Icon
-                          className="w-8 h-8 transition-transform duration-300 group-hover:scale-110"
-                          style={{ color: step.color }}
-                        />
-                      </div>
-                    </div>
-
-                    {/* Step number */}
-                    <div
-                      className="absolute -top-2 -right-2 w-7 h-7 rounded-full border-2 border-[#FFFFFF] flex items-center justify-center font-mono font-bold text-xs text-[#0D1321] shadow-md"
-                      style={{ backgroundColor: step.color }}
-                    >
-                      {i + 1}
-                    </div>
-
-                    {/* Special 90s badge on Ship step */}
-                    {step.special && (
-                      <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 flex items-center gap-1 bg-[#0D1321] border border-[#E9C46A]/50 text-[#E9C46A] px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold whitespace-nowrap shadow-lg">
-                        <Clock className="w-2.5 h-2.5" />
-                        90s verified
-                      </div>
-                    )}
-                  </div>
-
-                  <h3 className="font-serif text-xl font-bold text-[#0D1321] tracking-tight mb-1">
-                    {step.title}
-                  </h3>
-                  <span
-                    className="text-[11px] font-mono font-semibold uppercase tracking-wider mb-3"
-                    style={{ color: step.color }}
+                  {/* Circle Node with Hover/Tap Effect */}
+                  <motion.div
+                    whileHover={{ scale: 1.08 }}
+                    whileTap={{ scale: 0.94 }}
+                    className={`relative w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center transition-all duration-300 shrink-0 ${
+                      isActive
+                        ? "bg-[#0B2545] text-[#A9DDE8] border-2 border-[#0E6BA8] shadow-[0_0_24px_rgba(14,107,168,0.4)] ring-2 sm:ring-4 ring-[#0E6BA8]/30"
+                        : isPast
+                        ? "bg-[#0E6BA8] text-[#F8FCFD] border-2 border-[#0E6BA8] shadow-xs"
+                        : "bg-[#F8FCFD] text-[#0B2545]/75 border-2 border-[#A9DDE8]/60 shadow-xs group-hover:border-[#0E6BA8] group-hover:text-[#0B2545]"
+                    }`}
                   >
-                    {step.subtitle}
-                  </span>
-                  <p className="text-sm text-[#1D2D50]/75 leading-relaxed max-w-[220px]">
-                    {step.copy}
-                  </p>
-                </motion.div>
+                    {/* Centered Step Number Badge above the circle */}
+                    <span
+                      className={`absolute -top-2.5 left-1/2 -translate-x-1/2 px-1.5 sm:px-2 py-0.5 rounded-full text-[8.5px] sm:text-[10px] font-mono font-bold shadow-xs transition-colors whitespace-nowrap ${
+                        isActive
+                          ? "bg-[#0E6BA8] text-[#F8FCFD]"
+                          : isPast
+                          ? "bg-[#0B2545] text-[#A9DDE8]"
+                          : "bg-[#A9DDE8]/30 text-[#0B2545] border border-[#A9DDE8]/60"
+                      }`}
+                    >
+                      {step.num}
+                    </span>
+
+                    {/* Step Icon in center */}
+                    <Icon className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 transition-transform duration-200 group-hover:scale-110 shrink-0" />
+                  </motion.div>
+
+                  {/* Single Title with Controlled Mobile Height & Wrapping */}
+                  <div className="w-full mt-2.5 sm:mt-3.5 flex items-center justify-center min-h-[28px] sm:min-h-[36px]">
+                    <h3
+                      className={`font-serif font-bold text-[10.5px] sm:text-xs md:text-base tracking-tight text-center transition-colors leading-tight break-words max-w-full px-0.5 ${
+                        isActive
+                          ? "text-[#0B2545] font-extrabold"
+                          : "text-[#0B2545]/75 group-hover:text-[#0E6BA8]"
+                      }`}
+                    >
+                      {step.title}
+                    </h3>
+                  </div>
+                </div>
               );
             })}
           </div>
+
         </div>
 
-        {/* Mobile: Vertical steps */}
-        <div className="flex flex-col gap-0 lg:hidden relative">
-          {/* Vertical connector line */}
-          <div className="absolute left-8 top-8 bottom-8 w-px bg-[#E9C46A]/15 overflow-hidden">
-            <motion.div
-              className="w-full bg-gradient-to-b from-[#E9C46A] via-[#4CC9F0] to-[#FFD3A5]"
-              style={{ scaleY: lineScale, transformOrigin: "top", height: "100%" }}
-            />
-          </div>
-
-          {steps.map((step, i) => {
-            const Icon = step.icon;
-            return (
-              <motion.div
-                key={step.num}
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="flex gap-5 relative pl-4 mb-8 last:mb-0"
-              >
-                {/* Icon */}
-                <div className="relative shrink-0 z-10">
-                  <div
-                    className="w-16 h-16 rounded-full border-2 flex items-center justify-center bg-[#FFFFFF] shadow-lg"
-                    style={{
-                      borderColor: `${step.color}60`,
-                      boxShadow: `0 0 0 4px ${step.color}12`,
-                    }}
-                  >
-                    <Icon className="w-7 h-7" style={{ color: step.color }} />
-                  </div>
-                  {/* Number */}
-                  <div
-                    className="absolute -top-1 -right-1 w-6 h-6 rounded-full border-2 border-[#FFFFFF] flex items-center justify-center font-mono font-bold text-[10px] text-[#0D1321]"
-                    style={{ backgroundColor: step.color }}
-                  >
-                    {i + 1}
-                  </div>
-                </div>
-
-                {/* Text */}
-                <div className="pt-1 flex-1">
-                  <div className="flex items-center gap-2 flex-wrap mb-1">
-                    <h3 className="font-serif text-xl font-bold text-[#0D1321]">
-                      {step.title}
-                    </h3>
-                    {step.special && (
-                      <span className="inline-flex items-center gap-1 bg-[#0D1321] border border-[#E9C46A]/50 text-[#E9C46A] px-2 py-0.5 rounded-full text-[10px] font-mono font-bold">
-                        <Clock className="w-2.5 h-2.5" />
-                        90s
-                      </span>
-                    )}
-                  </div>
-                  <span
-                    className="text-[11px] font-mono font-semibold uppercase tracking-wider block mb-2"
-                    style={{ color: step.color }}
-                  >
-                    {step.subtitle}
-                  </span>
-                  <p className="text-sm text-[#1D2D50]/75 leading-relaxed">
-                    {step.copy}
-                  </p>
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
       </div>
     </section>
   );
 }
+

@@ -1,138 +1,115 @@
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import {
-  ArrowRight,
-  Download,
-  Sparkles,
-  Smartphone,
-  Check,
-  Terminal,
-  Copy,
-} from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowRight, Download } from "lucide-react";
 import devHeroPenthouse from "../assets/dev-hero-penthouse.png";
 
 export default function Hero() {
-  const [showQrModal, setShowQrModal] = useState(false);
-  const [copied, setCopied] = useState(false);
-
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setShowQrModal(false);
-    };
-    if (showQrModal) window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [showQrModal]);
-
-  const handleCopyCli = () => {
-    navigator.clipboard.writeText("npx create-jay-app@latest");
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2200);
-  };
-
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
-  const headlineWords = "A production app in 90 seconds.".split(" ");
+  const headlineWords = "Turning ambitious ideas into top-rated mobile products.".split(" ");
 
   return (
     <section
       id="hero"
-      className="relative w-full h-screen flex flex-col justify-center bg-[#FFFFFF] overflow-hidden select-none"
+      className="relative w-full min-h-[100svh] sm:h-screen flex flex-col justify-center items-center overflow-hidden select-none"
     >
-      {/* Cream Hero Card container with rounded corners and soft shadow */}
-      <div className="relative w-full bg-[#F4EDE0] border border-[#E9C46A]/40 shadow-[0_24px_80px_rgba(13,19,33,0.08),0_0_0_1px_rgba(233,196,106,0.25)_inset] overflow-hidden flex flex-col justify-between">
-        {/* Subtle ambient light gradient at the top */}
-        <div className="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-white/60 to-transparent pointer-events-none z-10" />
+      {/* Penthouse illustration as the FULL background */}
+      <img
+        src={devHeroPenthouse}
+        alt="Penthouse workspace background"
+        className="absolute inset-0 w-full h-full object-cover object-bottom pointer-events-none select-none z-0"
+      />
 
-        {/* Content Container */}
-        <div className="relative z-20 pt-10 sm:pt-14 md:pt-16 px-4 sm:px-8 text-center max-w-4xl mx-auto">
-          {/* Status badge above headline: Pulsing green dot and 'Open to new projects' */}
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 bg-[#FFFFFF] px-3.5 sm:px-4 py-1.5 rounded-full border border-[#E9C46A]/40 shadow-sm text-xs font-medium text-[#0D1321] mb-5 sm:mb-6"
-          >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#7CF5C5] opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#10B981]" />
-            </span>
-            <span className="font-sans font-semibold tracking-wide">
-              Open to new projects
-            </span>
-          </motion.div>
+      {/* Soft Radial Ambient Aura behind text — illuminates the sky behind the text for 100% legibility */}
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[58%] w-[960px] max-w-[96vw] h-[540px] pointer-events-none z-5"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, rgba(248, 252, 253, 0.94) 0%, rgba(248, 252, 253, 0.78) 45%, rgba(169, 221, 232, 0.22) 70%, transparent 85%)",
+          filter: "blur(22px)",
+        }}
+      />
 
-          {/* Headline (serif): 'A production app in 90 seconds.' - Words fade up in sequence */}
-          <h1 className="font-serif text-[40px] xs:text-[48px] sm:text-[60px] md:text-[72px] lg:text-[80px] font-bold text-[#0D1321] tracking-[-0.025em] leading-[1.05] mx-auto">
-            {headlineWords.map((word, i) => (
-              <motion.span
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.6,
-                  delay: 0.15 + i * 0.08,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-                className="inline-block mr-[0.25em]"
-              >
-                {word}
-              </motion.span>
-            ))}
-          </h1>
+      {/* Content Container (Layered directly over the ambient illumination) */}
+      <div className="relative z-10 pt-14 sm:pt-16 pb-8 px-4 sm:px-8 text-center max-w-4xl mx-auto flex flex-col items-center justify-center my-auto">
+        {/* Status badge above headline: Pulsing emerald dot and 'Open to new projects' */}
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="inline-flex items-center gap-2 bg-[#F8FCFD]/95 backdrop-blur-md px-4 py-1.5 rounded-full border border-[#A9DDE8]/60 shadow-xs text-xs font-semibold text-[#0B2545] mb-4 sm:mb-5"
+        >
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10A36B] opacity-75" />
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#10A36B]" />
+          </span>
+          <span className="font-sans tracking-wide">
+            Open to new projects
+          </span>
+        </motion.div>
 
-          {/* Subheading */}
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="text-[#1D2D50]/85 text-sm sm:text-base md:text-lg font-normal leading-relaxed max-w-2xl mx-auto mt-4 sm:mt-5 mb-7 sm:mb-8"
-          >
+        {/* Headline: 'Turning ambitious ideas into top-rated mobile products.' */}
+        <h1 className="font-serif text-[30px] xs:text-[40px] sm:text-[50px] md:text-[60px] lg:text-[68px] font-extrabold text-[#0B2545] tracking-[-0.025em] leading-[1.1] sm:leading-[1.08] mx-auto px-1 drop-shadow-[0_2px_18px_rgba(248,252,253,0.95)]">
+          {headlineWords.map((word, i) => (
+            <motion.span
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.55,
+                delay: 0.12 + i * 0.06,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              className="inline-block mr-[0.25em]"
+            >
+              {word}
+            </motion.span>
+          ))}
+        </h1>
+
+        {/* Subheading in a clean frosted pill for 100% crisp legibility over window bars */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="mt-4 sm:mt-5 mb-6 sm:mb-8 max-w-2xl mx-auto px-2"
+        >
+          <p className="inline-block bg-[#F8FCFD]/90 backdrop-blur-md px-4 sm:px-6 py-2 sm:py-2.5 rounded-2xl border border-[#A9DDE8]/50 shadow-[0_4px_20px_rgba(11,37,69,0.06)] text-[#0B2545] text-xs sm:text-base md:text-lg font-medium leading-relaxed">
             Senior React Native developer building fast, reliable mobile apps,
             web platforms and API integrations.
-          </motion.p>
+          </p>
+        </motion.div>
 
-          {/* Primary CTA: 'View my work' & Secondary: 'Download resume' */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.7 }}
-            className="flex flex-wrap items-center justify-center gap-3.5 sm:gap-4 mb-8 sm:mb-10"
+        {/* Primary CTA: 'View my work' & Secondary: 'Download resume' */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.7 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-4 sm:mb-6 w-full px-2 sm:px-0"
+        >
+          <button
+            onClick={() => scrollTo("projects")}
+            className="w-full xs:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 rounded-full text-[#F8FCFD] font-bold text-xs sm:text-base bg-gradient-to-r from-[#0E6BA8] via-[#0E6BA8] to-[#10A36B] shadow-[0_6px_22px_rgba(14,107,168,0.4)] hover:shadow-[0_8px_30px_rgba(14,107,168,0.6)] hover:scale-[1.03] active:scale-[0.98] transition-all duration-200 border border-[#A9DDE8]/40 cursor-pointer"
           >
-            <button
-              onClick={() => scrollTo("projects")}
-              className="inline-flex items-center gap-2 px-6 sm:px-7 py-3 rounded-full text-[#0D1321] font-semibold text-sm sm:text-base bg-gradient-to-r from-[#E9C46A] via-[#F4D078] to-[#FFD3A5] shadow-[0_6px_20px_rgba(233,196,106,0.4)] hover:shadow-[0_8px_28px_rgba(233,196,106,0.6)] hover:scale-[1.03] active:scale-[0.98] transition-all duration-200 border border-[#E9C46A]/50 cursor-pointer"
-            >
-              <span>View my work</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
+            <span>View my work</span>
+            <ArrowRight className="w-4 h-4 text-[#F8FCFD]" />
+          </button>
 
-            <a
-              href="/assets/JayKundariya.pdf"
-              download="JayKundariya_Resume.pdf"
-              className="inline-flex items-center gap-2 px-6 sm:px-7 py-3 rounded-full text-[#0D1321] font-semibold text-sm sm:text-base bg-[#FFFFFF] hover:bg-[#FFFFFF]/90 shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 border border-[#E9C46A]/35"
-            >
-              <Download className="w-4 h-4 text-[#1D2D50]" />
-              <span>Download resume</span>
-            </a>
-          </motion.div>
-        </div>
-
-        {/* Lower Banner Area: Penthouse illustration anchored at bottom with slow parallax & pulsing trails */}
-        <div className="relative w-full overflow-hidden mt-2 sm:mt-4">
-          {/* Upward blend to soft cream card */}
-          <div className="absolute top-0 inset-x-0 h-28 sm:h-36 md:h-44 bg-gradient-to-b from-[#F4EDE0] via-[#F4EDE0]/60 to-transparent z-10 pointer-events-none" />
-
-          {/* The Penthouse Illustration Banner */}
-          <motion.img
-            src={devHeroPenthouse}
-            alt="Illustrated golden-hour penthouse terrace with city skyline and faint light trails"
-            className="w-full h-full object-cover object-bottom select-none"
-          />
-        </div>
+          <a
+            href="/assets/JayKundariya.pdf"
+            download="JayKundariya_React Native Dev 4+ YOE.pdf"
+            className="w-full xs:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 rounded-full text-[#0B2545] font-semibold text-xs sm:text-base bg-[#F8FCFD]/95 hover:bg-[#F8FCFD] backdrop-blur-md shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 border border-[#A9DDE8]/50"
+          >
+            <Download className="w-4 h-4 text-[#0E6BA8]" />
+            <span>Download resume</span>
+          </a>
+        </motion.div>
       </div>
+
+      {/* Subtle bottom fade into the next section */}
+      <div className="absolute bottom-0 inset-x-0 h-16 sm:h-20 bg-gradient-to-t from-[#0B2545] via-[#0B2545]/40 to-transparent pointer-events-none z-10" />
     </section>
   );
 }

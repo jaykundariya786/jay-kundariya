@@ -1,177 +1,177 @@
-import React, { useEffect, useCallback, useState } from "react";
+import React from "react";
 import { useParams, Link } from "wouter";
 import { projectsData } from "../lib/projectData";
-import { motion } from "framer-motion";
+import {
+  ArrowLeft,
+  ExternalLink,
+  Smartphone,
+  CheckCircle2,
+  Layers,
+} from "lucide-react";
 import Navbar from "../components/Navbar";
 import NewFooter from "../components/NewFooter";
 
-const ProjectDetail: React.FC = () => {
+export default function ProjectDetail() {
   const { projectId } = useParams<{ projectId: string }>();
-  const [activeImageIndex, setActiveImageIndex] = useState(0);
 
   const project = projectId
-    ? projectsData?.filter((project) => project?.id === projectId)?.[0]
+    ? projectsData?.find((p) => p.id === projectId)
     : null;
-
-  const handleNextImage = useCallback(() => {
-    if (project) {
-      setActiveImageIndex((prev) =>
-        prev === project?.images?.length - 1 ? 0 : prev + 1
-      );
-    }
-  }, [project]);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      handleNextImage();
-    }, 2500);
-
-    return () => clearInterval(interval);
-  }, [handleNextImage]);
 
   if (!project) {
     return (
-      <div className="section project-not-found">
-        <h2>Project Not Found</h2>
-        <p>The project you are looking for does not exist.</p>
-        <Link to="/projects" className="back-link">
-          Back to Projects
-        </Link>
+      <div className="min-h-screen bg-[#F8FCFD] text-[#0B2545] flex flex-col justify-between">
+        <Navbar />
+        <div className="pt-32 pb-20 px-4 text-center max-w-md mx-auto my-auto">
+          <div className="w-12 h-12 rounded-2xl bg-[#A9DDE8]/20 border border-[#A9DDE8]/50 text-[#0E6BA8] flex items-center justify-center mx-auto mb-3">
+            <Layers className="w-6 h-6" />
+          </div>
+          <h2 className="text-xl font-bold text-[#0B2545]">Project Not Found</h2>
+          <p className="text-xs text-[#0B2545]/60 mt-1 mb-5">
+            The project you are looking for does not exist in the active catalog.
+          </p>
+          <Link
+            href="/projects"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#0E6BA8] hover:bg-[#0E6BA8]/90 text-white text-xs font-semibold shadow-xs"
+          >
+            <ArrowLeft className="w-3.5 h-3.5" />
+            <span>Return to Projects Archive</span>
+          </Link>
+        </div>
+        <NewFooter />
       </div>
     );
   }
 
   return (
-    <div className="bg-[#FFFFFF] min-h-screen">
+    <div className="min-h-screen bg-[#F8FCFD] text-[#0B2545]">
       <Navbar />
-      <section className="pt-28 uppercase bg-[#FFFFFF] text-[#0D1321] min-h-screen">
-      <div className="mb-16">
-        <div className="flex justify-center items-center relative gap-4 mb-4">
-          <div className="w-[95%] lg:w-[50%] h-[300px] md:h-[400px] lg:h-[450px] shadow-lg rounded-3xl overflow-hidden z-0 mb-4 md:mb-0as border border-[#E9C46A]/30">
-            <div className="w-full h-full bg-cover bg-center bg-no-repeat transition-all duration-300 ease-in-out z-0 bg-white">
-              <img
-                src={project.images[activeImageIndex]}
-                alt={`${project.title} screenshot ${activeImageIndex + 1}`}
-                className="w-full h-full object-cover"
-              />
-            </div>
+
+      <main className="pt-28 pb-16 sm:pb-24">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          {/* Back Navigation Bar */}
+          <div className="mb-6 flex items-center justify-between">
+            <Link
+              href="/projects"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0B2545]/70 hover:text-[#0E6BA8] transition-colors"
+            >
+              <ArrowLeft className="w-3.5 h-3.5" />
+              <span>Back to All Projects</span>
+            </Link>
+
+            <span className="text-[11px] font-mono text-[#0B2545]/50">
+              ID: {project.id}
+            </span>
           </div>
-        </div>
 
-        <div className="flex justify-center gap-2">
-          {project.images.map((_, index) => (
-            <button
-              key={index}
-              className={`w-4 h-4 rounded-full shadow-md transition-all duration-300 ease-in-out pointer-events-auto ${
-                activeImageIndex === index
-                  ? "bg-[#E9C46A] scale-125 shadow-md"
-                  : "bg-[#F4EDE0] border border-[#E9C46A]/30"
-              }`}
-              onClick={() => setActiveImageIndex(index)}
-            />
-          ))}
-        </div>
-      </div>
+          {/* Master Project Header Card */}
+          <div className="bg-white rounded-3xl p-5 sm:p-8 border border-[#0B2545]/10 shadow-[0_4px_24px_rgba(11,37,69,0.05)] mb-6">
+            <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
+              <span className="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-[#A9DDE8]/25 text-[#0B2545]">
+                {project.category}
+              </span>
 
-      <div className="w-[95%] lg:w-[900px] mx-auto">
-        <div className="lg:mb-16 mb-8 text-sm font-semibold">
-          <h2 className="text-2xl font-bold mb-4 relative pb-2 text-[#0D1321] tracking-wider uppercase after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-[30%] after:rounded after:h-1 after:bg-[#E9C46A]">
-            Project Overview
-          </h2>
-          <p className="mb-2 leading-[1.7] text-[#1D2D50]">
-            <strong className="text-[#0D1321]">Summary:</strong> {project.overview}
-          </p>
-          <p className="mb-2 leading-[1.7] text-[#1D2D50]">
-            <strong className="text-[#0D1321]">Description:</strong> {project.longDescription}
-          </p>
-          <p className="mb-2 leading-[1.7] text-[#1D2D50]">
-            <strong className="text-[#0D1321]">Purpose:</strong> {project.purpose}
-          </p>
-        </div>
-
-        <div className="lg:mb-16 mb-8 text-sm font-semibold">
-          <h2 className="text-2xl font-bold mb-4 relative pb-2 text-[#0D1321] tracking-wider uppercase after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-[30%] after:rounded after:h-1 after:bg-[#E9C46A]">
-            Features
-          </h2>
-          <ul className="pl-0">
-            {project.features.map((feature, index) => (
-              <li
-                key={index}
-                className="mb-3 leading-[1.6] pl-5 relative text-[#1D2D50] before:content-[''] before:absolute before:left-0 before:top-2 before:w-2 before:rounded before:h-2 before:bg-[#E9C46A]"
-              >
-                {feature}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="lg:mb-16 mb-8">
-          <h2 className="text-2xl font-bold mb-4 relative pb-2 text-[#0D1321] tracking-wider uppercase after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-[30%] after:rounded after:h-1 after:bg-[#E9C46A]">
-            Tools Used
-          </h2>
-          <div className="flex flex-wrap gap-3 mt-4 text-sm font-semibold">
-            {project.tools.map((tool, index) => (
-              <div
-                key={index}
-                className="bg-[#F4EDE0] text-[#0D1321] flex flex-row justify-center items-center gap-5 rounded-lg py-3 px-5 border border-[#E9C46A]/35 hover:border-[#E9C46A] transition-all duration-300 shadow-sm hover:scale-105"
-              >
-                {tool}
+              {/* Action Buttons */}
+              <div className="flex items-center gap-2">
+                {project.liveLink && (
+                  <a
+                    href={project.liveLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#0E6BA8] hover:bg-[#0E6BA8]/90 text-white text-xs font-semibold shadow-xs hover:scale-105 active:scale-95 transition-all"
+                  >
+                    <span>Live Website</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                )}
+                {project.appLink && (
+                  <a
+                    href={project.appLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#10A36B] hover:bg-[#10A36B]/90 text-white text-xs font-semibold shadow-xs hover:scale-105 active:scale-95 transition-all"
+                  >
+                    <Smartphone className="w-3 h-3" />
+                    <span>App Store</span>
+                  </a>
+                )}
               </div>
-            ))}
+            </div>
+
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0B2545] tracking-tight leading-tight">
+              {project.title}
+            </h1>
+
+            <p className="mt-3 text-sm sm:text-base text-[#0B2545]/70 leading-relaxed font-sans">
+              {project.longDescription || project.description}
+            </p>
+
+            {/* Architecture Highlights Pill */}
+            {project.purpose && (
+              <div className="mt-5 p-3.5 sm:p-4 rounded-2xl bg-[#F8FCFD] border border-[#A9DDE8]/40">
+                <span className="text-[10.5px] font-mono font-bold text-[#0E6BA8] uppercase tracking-wider block mb-1">
+                  Product Purpose &amp; Impact
+                </span>
+                <p className="text-xs sm:text-sm text-[#0B2545] leading-relaxed font-sans">
+                  {project.purpose}
+                </p>
+              </div>
+            )}
+          </div>
+
+          {/* Key Deliverables & Architecture Features */}
+          {project.features && project.features.length > 0 && (
+            <div className="bg-white rounded-3xl p-5 sm:p-8 border border-[#0B2545]/10 shadow-[0_4px_24px_rgba(11,37,69,0.05)] mb-6">
+              <h2 className="text-sm font-mono font-bold text-[#0B2545]/60 uppercase tracking-wider mb-4">
+                Key Architecture &amp; Deliverables
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
+                {project.features.map((feature, index) => (
+                  <div
+                    key={index}
+                    className="flex items-start gap-2.5 p-3 rounded-xl bg-[#F8FCFD] border border-[#A9DDE8]/30 text-xs text-[#0B2545]"
+                  >
+                    <CheckCircle2 className="w-4 h-4 text-[#10A36B] shrink-0 mt-0.5" />
+                    <span className="leading-snug">{feature}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Tools & Tech Stack */}
+          {project.tools && project.tools.length > 0 && (
+            <div className="bg-white rounded-3xl p-5 sm:p-8 border border-[#0B2545]/10 shadow-[0_4px_24px_rgba(11,37,69,0.05)] mb-6">
+              <h2 className="text-sm font-mono font-bold text-[#0B2545]/60 uppercase tracking-wider mb-3">
+                Technologies &amp; Libraries
+              </h2>
+              <div className="flex flex-wrap gap-2">
+                {project.tools.map((tool, index) => (
+                  <span
+                    key={index}
+                    className="px-3 py-1.5 rounded-xl bg-[#A9DDE8]/20 text-[#0B2545] text-xs font-mono font-semibold"
+                  >
+                    {tool}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Bottom Back Button */}
+          <div className="pt-4 text-center">
+            <Link
+              href="/projects"
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-white hover:bg-[#F8FCFD] border border-[#A9DDE8]/60 text-[#0B2545] hover:text-[#0E6BA8] text-xs font-semibold shadow-xs transition-colors"
+            >
+              <ArrowLeft className="w-3.5 h-3.5" />
+              <span>Back to All 21 Projects</span>
+            </Link>
           </div>
         </div>
+      </main>
 
-        {(project?.liveLink || project?.appLink) && (
-          <div className="lg:mb-16 mb-8">
-            <h2 className="text-2xl font-bold mb-4 relative pb-2 text-[#0D1321] tracking-wider uppercase after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-[30%] after:rounded after:h-1 after:bg-[#E9C46A]">
-              See Live
-            </h2>
-            <div className="flex gap-2">
-              {project?.liveLink && (
-                <div className="mb-8 text-center">
-                  <motion.div className="inline-block">
-                    <a
-                      href={project.liveLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-gradient-to-r from-[#E9C46A] via-[#F4D078] to-[#FFD3A5] text-[#0D1321] inline-flex uppercase tracking-wider text-sm items-center gap-2 hover:brightness-105 font-semibold py-3 px-8 rounded-full shadow-lg transition-all duration-300"
-                    >
-                      <span>LIVE SITE</span>
-                    </a>
-                  </motion.div>
-                </div>
-              )}
-              {project?.appLink && (
-                <div className="mb-8 text-center">
-                  <motion.div className="inline-block">
-                    <a
-                      href={project.appLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-gradient-to-r from-[#E9C46A] via-[#F4D078] to-[#FFD3A5] text-[#0D1321] inline-flex uppercase tracking-wider text-sm items-center gap-2 hover:brightness-105 font-semibold py-3 px-8 rounded-full shadow-lg transition-all duration-300"
-                    >
-                      <span>GET APPS</span>
-                    </a>
-                  </motion.div>
-                </div>
-              )}
-            </div>
-          </div>
-        )}
-      </div>
-
-      <div className="flex justify-center border-t border-[#E9C46A]/20">
-        <Link
-          to="/projects"
-          className="tracking-wider transition-all duration-300 m-8 text-lg font-semibold text-[#0D1321] hover:text-[#E9C46A]"
-        >
-          BACK TO PROJECTS
-        </Link>
-      </div>
-      </section>
       <NewFooter />
     </div>
   );
-};
-
-export default ProjectDetail;
+}

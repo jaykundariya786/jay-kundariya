@@ -10,7 +10,6 @@ import {
   X,
   CheckCircle2,
   Clock,
-  Sparkles,
 } from "lucide-react";
 
 interface ServiceCard {
@@ -35,8 +34,8 @@ const SERVICES: ServiceCard[] = [
     title: "Mobile App Development",
     copy: "React Native and Expo apps for iOS and Android, from idea to store release.",
     icon: Smartphone,
-    accent: "#E9C46A",
-    badgeBg: "rgba(233, 196, 106, 0.15)",
+    accent: "#0E6BA8",
+    badgeBg: "rgba(14, 107, 168, 0.15)",
     details: {
       subtitle: "Complete cross-platform iOS & Android mobile product from concept to store release.",
       timeline: "3 to 6 weeks for MVP",
@@ -54,8 +53,8 @@ const SERVICES: ServiceCard[] = [
     title: "Web Platforms",
     copy: "Responsive web apps, management portals, and multi-location dashboards.",
     icon: Layout,
-    accent: "#4CC9F0",
-    badgeBg: "rgba(76, 201, 240, 0.15)",
+    accent: "#A9DDE8",
+    badgeBg: "rgba(169, 221, 232, 0.25)",
     details: {
       subtitle: "Connected cloud portals and dashboards that keep field teams and stores in sync.",
       timeline: "2 to 4 weeks",
@@ -73,8 +72,8 @@ const SERVICES: ServiceCard[] = [
     title: "API Integration",
     copy: "REST and GraphQL, third-party SDKs, authentication flows such as UAE PASS.",
     icon: KeyRound,
-    accent: "#7CF5C5",
-    badgeBg: "rgba(124, 245, 197, 0.15)",
+    accent: "#10A36B",
+    badgeBg: "rgba(16, 163, 107, 0.15)",
     details: {
       subtitle: "Government-grade biometric authentication and mission-critical native hardware SDKs.",
       timeline: "1 to 3 weeks",
@@ -92,8 +91,8 @@ const SERVICES: ServiceCard[] = [
     title: "Technical Consulting",
     copy: "Architecture advice, code reviews, and comprehensive app rebuild strategy.",
     icon: Compass,
-    accent: "#FFD3A5",
-    badgeBg: "rgba(255, 211, 165, 0.2)",
+    accent: "#0B2545",
+    badgeBg: "rgba(11, 37, 69, 0.1)",
     details: {
       subtitle: "Independent code audits, speed revival, and strategic technical roadmaps.",
       timeline: "1 to 2 weeks",
@@ -118,7 +117,7 @@ export default function ServicesSection() {
   return (
     <section
       id="services"
-      className="relative w-full bg-[#F4EDE0] text-[#0D1321] py-8 sm:py-12 lg:py-14 px-4 sm:px-6 lg:px-8 select-none border-t border-[#E9C46A]/25"
+      className="relative w-full bg-[#F8FCFD] text-[#0B2545] py-8 sm:py-12 lg:py-14 px-4 sm:px-6 lg:px-8 select-none border-t border-[#A9DDE8]/40"
     >
       <div className="max-w-6xl mx-auto">
         {/* Low-profile editorial headline */}
@@ -128,9 +127,9 @@ export default function ServicesSection() {
               initial={{ opacity: 0, y: 8 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="flex items-center gap-2 text-xs font-serif font-bold text-[#E9C46A] tracking-wider uppercase mb-1.5"
+              className="flex items-center gap-2 text-xs font-serif font-bold text-[#0E6BA8] tracking-wider uppercase mb-1.5"
             >
-              <span>✦</span>
+              <span className="text-[#10A36B]">✦</span>
               <span>Capabilities & Offerings</span>
             </motion.div>
 
@@ -139,13 +138,13 @@ export default function ServicesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="font-serif text-3xl sm:text-4xl lg:text-[40px] font-bold text-[#0D1321] tracking-tight leading-tight"
+              className="font-serif text-3xl sm:text-4xl lg:text-[40px] font-bold text-[#0B2545] tracking-tight leading-tight"
             >
               What I can build for you.
             </motion.h2>
           </div>
 
-          <p className="text-xs sm:text-sm text-[#1D2D50]/80 font-sans max-w-sm">
+          <p className="text-xs sm:text-sm text-[#0B2545]/75 font-sans max-w-sm">
             Bespoke mobile and web engineering with fixed timelines, direct communication, and zero bloat.
           </p>
         </div>
@@ -164,7 +163,7 @@ export default function ServicesSection() {
                 transition={{ duration: 0.5, delay: index * 0.08 }}
                 whileHover={{ y: -6, transition: { duration: 0.2, ease: "easeOut" } }}
                 onClick={() => setSelectedService(service)}
-                className="group relative bg-[#FFFFFF] border border-[#E9C46A]/35 rounded-[24px] sm:rounded-[26px] p-6 sm:p-7 flex flex-col justify-between shadow-[0_8px_24px_rgba(13,19,33,0.04)] hover:border-[#E9C46A] hover:shadow-[0_18px_42px_rgba(233,196,106,0.28)] transition-all duration-300 cursor-pointer"
+                className="group relative bg-[#F8FCFD] border border-[#A9DDE8]/60 rounded-[24px] sm:rounded-[26px] p-6 sm:p-7 flex flex-col justify-between shadow-[0_8px_24px_rgba(11,37,69,0.04)] hover:border-[#0E6BA8] hover:shadow-[0_18px_42px_rgba(14,107,168,0.22)] transition-all duration-300 cursor-pointer"
               >
                 {/* Top Row: Animated Line Icon + Card Number */}
                 <div>
@@ -176,35 +175,35 @@ export default function ServicesSection() {
                       style={{
                         backgroundColor: service.badgeBg,
                         border: `1px solid ${service.accent}50`,
-                        color: "#0D1321",
+                        color: "#0B2545",
                       }}
                     >
-                      <Icon className="w-5 h-5 text-[#0D1321]" strokeWidth={2} />
+                      <Icon className="w-5 h-5 text-[#0B2545]" strokeWidth={2} />
                     </motion.div>
 
-                    <span className="font-serif italic font-semibold text-xs text-[#E9C46A]/80 tracking-wider">
+                    <span className="font-serif italic font-semibold text-xs text-[#0E6BA8] tracking-wider">
                       {service.num}
                     </span>
                   </div>
 
                   {/* Title */}
-                  <h3 className="font-serif font-bold text-lg sm:text-[19px] text-[#0D1321] tracking-tight leading-snug mb-2 group-hover:text-[#1D2D50] transition-colors">
+                  <h3 className="font-serif font-bold text-lg sm:text-[19px] text-[#0B2545] tracking-tight leading-snug mb-2 group-hover:text-[#0E6BA8] transition-colors">
                     {service.title}
                   </h3>
 
                   {/* 2 Lines of Copy */}
-                  <p className="text-xs sm:text-[13px] text-[#1D2D50]/80 font-sans leading-relaxed line-clamp-2">
+                  <p className="text-xs sm:text-[13px] text-[#0B2545]/75 font-sans leading-relaxed line-clamp-2">
                     {service.copy}
                   </p>
                 </div>
 
                 {/* Bottom Row: 'Learn more' Arrow */}
-                <div className="mt-6 pt-4 border-t border-[#E9C46A]/20 flex items-center justify-between">
-                  <span className="text-xs font-sans font-semibold text-[#0D1321] group-hover:text-[#E9C46A] transition-colors">
+                <div className="mt-6 pt-4 border-t border-[#A9DDE8]/30 flex items-center justify-between">
+                  <span className="text-xs font-sans font-semibold text-[#0B2545] group-hover:text-[#0E6BA8] transition-colors">
                     Learn more
                   </span>
 
-                  <div className="w-7 h-7 rounded-full bg-[#F4EDE0] border border-[#E9C46A]/35 flex items-center justify-center text-[#0D1321] group-hover:bg-[#E9C46A] transition-all duration-200">
+                  <div className="w-7 h-7 rounded-full bg-[#A9DDE8]/20 border border-[#A9DDE8]/50 flex items-center justify-center text-[#0B2545] group-hover:bg-[#0E6BA8] group-hover:text-[#F8FCFD] transition-all duration-200">
                     <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </div>
                 </div>
@@ -219,7 +218,7 @@ export default function ServicesSection() {
         {selectedService && (
           <div
             onClick={() => setSelectedService(null)}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0D1321]/75 backdrop-blur-sm cursor-pointer"
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0B2545]/75 backdrop-blur-sm cursor-pointer"
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 10 }}
@@ -227,48 +226,48 @@ export default function ServicesSection() {
               exit={{ opacity: 0, scale: 0.95, y: 10 }}
               transition={{ duration: 0.22, ease: "easeOut" }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-lg bg-[#FFFFFF] border border-[#E9C46A]/50 rounded-[28px] p-6 sm:p-8 shadow-2xl cursor-default text-[#0D1321]"
+              className="relative w-full max-w-lg bg-[#F8FCFD] border border-[#0E6BA8]/40 rounded-[28px] p-6 sm:p-8 shadow-2xl cursor-default text-[#0B2545]"
             >
               {/* Close Button */}
               <button
                 onClick={() => setSelectedService(null)}
-                className="absolute top-5 right-5 w-8 h-8 rounded-full bg-[#F4EDE0] hover:bg-[#E9C46A]/30 flex items-center justify-center text-[#0D1321] transition-colors cursor-pointer"
+                className="absolute top-5 right-5 w-8 h-8 rounded-full bg-[#A9DDE8]/25 hover:bg-[#0E6BA8]/20 flex items-center justify-center text-[#0B2545] transition-colors cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
 
               {/* Header */}
-              <div className="flex items-center gap-2 text-xs font-serif font-bold text-[#E9C46A] tracking-wider uppercase mb-1">
-                <span>✦</span>
+              <div className="flex items-center gap-2 text-xs font-serif font-bold text-[#0E6BA8] tracking-wider uppercase mb-1">
+                <span className="text-[#10A36B]">✦</span>
                 <span>Offering {selectedService.num}</span>
               </div>
 
-              <h3 className="font-serif font-bold text-2xl text-[#0D1321] mb-2 leading-tight">
+              <h3 className="font-serif font-bold text-2xl text-[#0B2545] mb-2 leading-tight">
                 {selectedService.title}
               </h3>
 
-              <p className="text-xs sm:text-sm text-[#1D2D50]/80 font-sans leading-relaxed mb-4">
+              <p className="text-xs sm:text-sm text-[#0B2545]/80 font-sans leading-relaxed mb-4">
                 {selectedService.details.subtitle}
               </p>
 
               {/* Timeline Chip */}
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-sans font-semibold bg-[#F4EDE0] text-[#0D1321] border border-[#E9C46A]/40 mb-5">
-                <Clock className="w-3.5 h-3.5 text-[#E9C46A]" />
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-sans font-semibold bg-[#A9DDE8]/20 text-[#0B2545] border border-[#A9DDE8]/40 mb-5">
+                <Clock className="w-3.5 h-3.5 text-[#0E6BA8]" />
                 <span>Typical Turnaround: {selectedService.details.timeline}</span>
               </div>
 
               {/* What is Delivered */}
               <div className="space-y-2.5 mb-6">
-                <span className="text-[11px] font-sans font-bold uppercase tracking-wider text-[#0D1321]/70 block">
+                <span className="text-[11px] font-sans font-bold uppercase tracking-wider text-[#0B2545]/70 block">
                   What You Receive:
                 </span>
                 {selectedService.details.deliverables.map((item, idx) => (
                   <div
                     key={idx}
-                    className="flex items-start gap-2.5 p-2.5 rounded-xl bg-[#F4EDE0]/50 border border-[#E9C46A]/25"
+                    className="flex items-start gap-2.5 p-2.5 rounded-xl bg-[#A9DDE8]/15 border border-[#A9DDE8]/30"
                   >
-                    <CheckCircle2 className="w-4 h-4 text-[#10B981] shrink-0 mt-0.5" />
-                    <span className="text-xs sm:text-[13px] text-[#0D1321] font-medium leading-snug">
+                    <CheckCircle2 className="w-4 h-4 text-[#10A36B] shrink-0 mt-0.5" />
+                    <span className="text-xs sm:text-[13px] text-[#0B2545] font-medium leading-snug">
                       {item}
                     </span>
                   </div>
@@ -281,10 +280,10 @@ export default function ServicesSection() {
                   setSelectedService(null);
                   scrollTo("contact");
                 }}
-                className="w-full py-3 rounded-full text-[#0D1321] font-bold text-xs sm:text-sm bg-gradient-to-r from-[#E9C46A] via-[#F4D078] to-[#FFD3A5] shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2 border border-[#E9C46A]/50 cursor-pointer"
+                className="w-full py-3 rounded-full text-[#F8FCFD] font-bold text-xs sm:text-sm bg-gradient-to-r from-[#0E6BA8] to-[#10A36B] shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2 border border-[#A9DDE8]/40 cursor-pointer"
               >
                 <span>Discuss {selectedService.title} with Jay</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 text-[#F8FCFD]" />
               </button>
             </motion.div>
           </div>

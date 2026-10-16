@@ -1,224 +1,250 @@
-import { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, Sparkles, Quote } from "lucide-react";
+import React from "react";
+import { motion } from "framer-motion";
+import { Sparkles } from "lucide-react";
 
-interface Testimonial {
-  quote: string;
-  name: string;
-  role: string;
-  company: string;
-  initials: string;
-  accentColor: string;
-}
-
-const testimonials: Testimonial[] = [
-  {
-    quote:
-      "Jay delivered our React Native app ahead of schedule with zero critical bugs on launch day. He communicated clearly at every step and had a deep understanding of both iOS and Android platform nuances. I'd hire him again without hesitation.",
-    name: "Ravi Mehta",
-    role: "CTO",
-    company: "Opash Software",
-    initials: "RM",
-    accentColor: "#E9C46A",
-  },
-  {
-    quote:
-      "The UAE PASS integration was flawless — exactly what our government client required in terms of security, reliability, and speed. Jay handled an incredibly complex auth flow calmly and professionally, and the app passed every compliance audit.",
-    name: "Khalid Al-Mansouri",
-    role: "Project Lead",
-    company: "ESANAD Platform",
-    initials: "KA",
-    accentColor: "#4CC9F0",
-  },
-  {
-    quote:
-      "He solo-built a full multi-location POS platform in 1.5 months — frontend, backend, and mobile. That's extraordinary velocity without sacrificing quality. Our retail clients love the offline-first experience and real-time fleet dashboard.",
-    name: "Priya Shah",
-    role: "Head of Product",
-    company: "RetailTech India",
-    initials: "PS",
-    accentColor: "#7CF5C5",
-  },
-];
-
-const SLIDE_INTERVAL = 5000;
+// Coral double quote icon matching reference design
+const QuoteIcon = ({ className = "text-[#0E6BA8]" }: { className?: string }) => (
+  <svg
+    className={`w-4 h-3.5 sm:w-5 sm:h-4 ${className} shrink-0`}
+    viewBox="0 0 20 16"
+    fill="currentColor"
+    aria-hidden="true"
+  >
+    <path d="M0 8.8C0 3.84 3.12 0.48 7.68 0L8.76 1.92C5.64 2.52 3.72 4.32 3.36 7.2H7.44V15.6H0V8.8ZM11.16 8.8C11.16 3.84 14.28 0.48 18.84 0L19.92 1.92C16.8 2.52 14.88 4.32 14.52 7.2H18.6V15.6H11.16V8.8Z" />
+  </svg>
+);
 
 export default function TestimonialsSection() {
-  const [current, setCurrent] = useState(0);
-  const [paused, setPaused] = useState(false);
-
-  const next = useCallback(() => {
-    setCurrent((c) => (c + 1) % testimonials.length);
-  }, []);
-
-  const prev = useCallback(() => {
-    setCurrent((c) => (c - 1 + testimonials.length) % testimonials.length);
-  }, []);
-
-  useEffect(() => {
-    if (paused) return;
-    const id = setInterval(next, SLIDE_INTERVAL);
-    return () => clearInterval(id);
-  }, [paused, next]);
-
-  const t = testimonials[current];
-
   return (
     <section
       id="testimonials"
-      className="relative w-full min-h-screen flex flex-col justify-center bg-[#0D1321] py-20 sm:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
+      className="relative w-full bg-[#F8FCFD] py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden select-none border-y border-[#A9DDE8]/40"
     >
-      {/* Ambient glows */}
-      <div className="absolute top-1/4 left-1/3 w-[600px] h-[600px] bg-[#E9C46A]/6 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-[#4CC9F0]/5 rounded-full blur-[100px] pointer-events-none" />
+      {/* Subtle ambient lighting */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[340px] bg-[#0E6BA8]/8 rounded-full blur-[140px] pointer-events-none" />
 
-      {/* Large gold decorative quote mark */}
-      <div className="absolute top-12 sm:top-20 left-1/2 -translate-x-1/2 text-[200px] sm:text-[280px] font-serif font-bold text-[#E9C46A]/6 leading-none pointer-events-none select-none">
-        "
-      </div>
-
-      <div className="max-w-5xl mx-auto w-full relative z-10">
+      <div className="max-w-[1100px] mx-auto w-full relative z-10">
+        
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center mb-14 sm:mb-20">
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 bg-[#F4EDE0]/10 border border-[#E9C46A]/30 px-4 py-1.5 rounded-full text-xs font-mono font-semibold text-[#E9C46A] uppercase tracking-wider mb-4"
-          >
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Client Testimonials</span>
-          </motion.div>
+        <div className="flex flex-col items-center text-center mb-10 sm:mb-14">
+          <div className="inline-flex items-center gap-1.5 text-[11px] font-serif uppercase tracking-[0.18em] text-[#0B2545]/70 mb-2">
+            <Sparkles className="w-3.5 h-3.5 text-[#10A36B]" />
+            <span>Proven Results</span>
+          </div>
 
-          <motion.h2
+          <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0B2545] tracking-tight">
+            Client stories & impact.
+          </h2>
+        </div>
+
+        {/* ======================================================== */}
+        {/* BENTO GRID                                               */}
+        {/* ======================================================== */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 items-stretch">
+          
+          {/* ======================================================== */}
+          {/* CARD 1 (LEFT TALL CARD: 8X METRIC + SPOTIFY)              */}
+          {/* ======================================================== */}
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#F4EDE0] tracking-tight"
+            transition={{ duration: 0.4 }}
+            className="lg:col-span-5 bg-[#F8FCFD] rounded-[28px] sm:rounded-[32px] p-7 sm:p-9 shadow-[0_10px_35px_rgba(11,37,69,0.06)] border border-[#A9DDE8]/50 flex flex-col justify-between"
           >
-            Kind words.
-          </motion.h2>
-        </div>
-
-        {/* Carousel */}
-        <div className="relative">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={current}
-              initial={{ opacity: 0, y: 30, scale: 0.97 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -20, scale: 0.97 }}
-              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              className="relative"
-            >
-              {/* Glass testimonial card */}
-              <div className="relative bg-[#F4EDE0]/7 backdrop-blur-md border border-[#E9C46A]/25 rounded-3xl p-8 sm:p-12 shadow-[0_20px_60px_rgba(13,19,33,0.4)]">
-                {/* Gold quote icon */}
-                <div
-                  className="w-12 h-12 rounded-2xl flex items-center justify-center mb-8 shadow-lg"
-                  style={{
-                    backgroundColor: `${t.accentColor}20`,
-                    border: `1.5px solid ${t.accentColor}40`,
-                  }}
-                >
-                  <Quote
-                    className="w-6 h-6"
-                    style={{ color: t.accentColor }}
-                  />
-                </div>
-
-                {/* Quote text */}
-                <blockquote className="font-serif text-xl sm:text-2xl md:text-3xl font-medium text-[#F4EDE0] leading-relaxed tracking-tight mb-10">
-                  "{t.quote}"
-                </blockquote>
-
-                {/* Author */}
-                <div className="flex items-center justify-between flex-wrap gap-4">
-                  <div className="flex items-center gap-4">
-                    {/* Avatar */}
-                    <div
-                      className="w-12 h-12 rounded-2xl flex items-center justify-center font-serif font-bold text-lg text-[#0D1321] shadow-md"
-                      style={{ backgroundColor: t.accentColor }}
-                    >
-                      {t.initials}
-                    </div>
-                    <div>
-                      <div className="font-serif font-bold text-[#F4EDE0] text-base">
-                        {t.name}
-                      </div>
-                      <div className="text-xs font-mono text-[#F4EDE0]/60 mt-0.5">
-                        {t.role} · {t.company}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Rating */}
-                  <div className="flex gap-1">
-                    {[...Array(5)].map((_, i) => (
-                      <span key={i} className="text-[#E9C46A] text-lg">★</span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Accent corner glow */}
-                <div
-                  className="absolute top-0 right-0 w-40 h-40 rounded-full blur-3xl opacity-30 pointer-events-none"
-                  style={{ backgroundColor: t.accentColor }}
-                />
+            <div>
+              {/* Big Metric & Title */}
+              <div className="mb-8">
+                <span className="block text-5xl sm:text-6xl font-extrabold tracking-tight text-[#0B2545] leading-none">
+                  8X
+                </span>
+                <span className="block text-base sm:text-lg font-semibold text-[#0E6BA8] mt-2.5">
+                  Increase in conversion rate
+                </span>
               </div>
-            </motion.div>
-          </AnimatePresence>
 
-          {/* Nav Buttons */}
-          <div className="flex items-center justify-center gap-4 mt-8">
-            <button
-              onClick={prev}
-              className="w-11 h-11 rounded-full bg-[#F4EDE0]/10 border border-[#E9C46A]/25 flex items-center justify-center text-[#F4EDE0] hover:bg-[#E9C46A]/20 hover:border-[#E9C46A]/50 transition-all cursor-pointer"
-              aria-label="Previous testimonial"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
+              {/* Quote Mark */}
+              <div className="mb-3.5">
+                <QuoteIcon className="text-[#0E6BA8]" />
+              </div>
 
-            {/* Dot navigation */}
-            <div className="flex gap-2">
-              {testimonials.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setCurrent(i)}
-                  className={`rounded-full transition-all duration-300 cursor-pointer ${
-                    i === current
-                      ? "w-6 h-2.5 bg-[#E9C46A]"
-                      : "w-2.5 h-2.5 bg-[#F4EDE0]/30 hover:bg-[#F4EDE0]/50"
-                  }`}
-                  aria-label={`Go to testimonial ${i + 1}`}
-                />
-              ))}
+              {/* Quote Text */}
+              <p className="text-sm sm:text-[15px] text-[#0B2545]/80 leading-[1.65] font-sans">
+                “We needed a modern, high-converting mobile app & web architecture, and Jay delivered beyond expectations. His technical precision and UI standards helped us increase conversion rate significantly in weeks. Highly recommend!”
+              </p>
             </div>
 
-            <button
-              onClick={next}
-              className="w-11 h-11 rounded-full bg-[#F4EDE0]/10 border border-[#E9C46A]/25 flex items-center justify-center text-[#F4EDE0] hover:bg-[#E9C46A]/20 hover:border-[#E9C46A]/50 transition-all cursor-pointer"
-              aria-label="Next testimonial"
+            {/* Author Footer with Spotify Logo */}
+            <div className="flex items-center justify-between pt-8 mt-6 border-t border-[#A9DDE8]/30">
+              <div className="flex items-center gap-3">
+                <img
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=160&auto=format&fit=crop&q=80"
+                  alt="David Callahan"
+                  className="w-10 h-10 rounded-full object-cover shrink-0 border border-[#A9DDE8]"
+                />
+                <div>
+                  <div className="text-sm font-semibold text-[#0B2545] leading-tight">
+                    David Callahan
+                  </div>
+                  <div className="text-xs text-[#0B2545]/60 mt-0.5">
+                    Product Lead, AudioTech
+                  </div>
+                </div>
+              </div>
+
+              {/* Spotify SVG Icon */}
+              <svg
+                className="w-5 h-5 text-[#0E6BA8] shrink-0"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-label="Spotify"
+              >
+                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.494 17.307c-.215.353-.674.464-1.026.248-2.812-1.718-6.353-2.107-10.523-1.155-.403.092-.806-.16-.898-.563-.092-.403.16-.806.563-.898 4.569-1.043 8.494-.602 11.636 1.342.353.216.464.674.248 1.026zm1.468-3.262c-.271.442-.847.583-1.288.312-3.22-1.978-8.13-2.55-11.939-1.393-.498.151-1.026-.134-1.178-.632-.151-.498.134-1.026.632-1.178 4.364-1.325 9.775-.683 13.46 1.583.442.271.583.847.313 1.309zm.126-3.41c-3.86-2.293-10.23-2.505-13.916-1.387-.593.18-1.222-.16-1.402-.753-.18-.593.16-1.222.753-1.402 4.238-1.287 11.28-1.042 15.727 1.597.533.316.708 1.008.392 1.541-.316.533-1.008.708-1.541.392z" />
+              </svg>
+            </div>
+          </motion.div>
+
+          {/* ======================================================== */}
+          {/* RIGHT COLUMN: Card 2 (Top) + Card 3 & 4 (Bottom Row)      */}
+          {/* ======================================================== */}
+          <div className="lg:col-span-7 flex flex-col gap-5 sm:gap-6 justify-between">
+            
+            {/* CARD 2: Top Wide Card (2X Metric + Google) */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.1 }}
+              className="bg-[#F8FCFD] rounded-[28px] sm:rounded-[32px] p-7 sm:p-8 shadow-[0_10px_35px_rgba(11,37,69,0.06)] border border-[#A9DDE8]/50 flex flex-col justify-between"
             >
-              <ChevronRight className="w-5 h-5" />
-            </button>
+              <div>
+                {/* 2X Metric Inlined with Label */}
+                <div className="flex items-baseline gap-2.5 mb-4">
+                  <span className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#0B2545] leading-none">
+                    2X
+                  </span>
+                  <span className="text-base sm:text-lg font-semibold text-[#0E6BA8]">
+                    Faster feature release velocity
+                  </span>
+                </div>
+
+                {/* Quote Mark */}
+                <div className="mb-3">
+                  <QuoteIcon className="text-[#0E6BA8]" />
+                </div>
+
+                {/* Quote Text */}
+                <p className="text-xs sm:text-[13.5px] text-[#0B2545]/80 leading-[1.65] font-sans">
+                  “From UI design implementation to complex state management, every detail was meticulously handled. Jay’s expertise helped us launch faster, and the results have been phenomenal!”
+                </p>
+              </div>
+
+              {/* Author Footer */}
+              <div className="flex items-center justify-between pt-6 mt-4 border-t border-[#A9DDE8]/30">
+                <div className="flex items-center gap-3">
+                  <img
+                    src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=160&auto=format&fit=crop&q=80"
+                    alt="Sarah Mitchel"
+                    className="w-10 h-10 rounded-full object-cover shrink-0 border border-[#A9DDE8]"
+                  />
+                  <div>
+                    <div className="text-sm font-semibold text-[#0B2545] leading-tight">
+                      Sarah Mitchel
+                    </div>
+                    <div className="text-xs text-[#0B2545]/60 mt-0.5">
+                      Engineering Director, FinCloud
+                    </div>
+                  </div>
+                </div>
+
+                {/* Star rating */}
+                <div className="flex items-center gap-1 text-[#10A36B]">
+                  {"★".repeat(5)}
+                </div>
+              </div>
+            </motion.div>
+
+            {/* BOTTOM ROW: Card 3 (White) & Card 4 (Dark Navy) */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 items-stretch">
+              
+              {/* CARD 3: Bottom Left White Card */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.2 }}
+                className="bg-[#F8FCFD] rounded-[24px] sm:rounded-[28px] p-6 sm:p-7 shadow-[0_10px_35px_rgba(11,37,69,0.06)] border border-[#A9DDE8]/50 flex flex-col justify-between"
+              >
+                <div>
+                  <div className="mb-3">
+                    <QuoteIcon className="text-[#0E6BA8]" />
+                  </div>
+
+                  <p className="text-xs sm:text-[13px] text-[#0B2545]/80 leading-[1.65] font-sans">
+                    “His React Native animation work took our application to the next level. Jay truly understands smooth mobile gesture UX and clean code.”
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-2.5 pt-6 mt-4 border-t border-[#A9DDE8]/30">
+                  <img
+                    src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=160&auto=format&fit=crop&q=80"
+                    alt="Tom Becker"
+                    className="w-9 h-9 rounded-full object-cover shrink-0 border border-[#A9DDE8]"
+                  />
+                  <div>
+                    <div className="text-xs sm:text-[13px] font-semibold text-[#0B2545] leading-tight">
+                      Tom Becker
+                    </div>
+                    <div className="text-[11px] text-[#0B2545]/60 mt-0.5">
+                      Founder, PulseCore
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* CARD 4: Bottom Right Dark Navy Card */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.25 }}
+                className="bg-[#0B2545] text-[#F8FCFD] rounded-[24px] sm:rounded-[28px] p-6 sm:p-7 shadow-[0_12px_36px_rgba(11,37,69,0.22)] border border-[#0E6BA8]/35 flex flex-col justify-between"
+              >
+                <div>
+                  <div className="mb-3">
+                    <QuoteIcon className="text-[#A9DDE8]" />
+                  </div>
+
+                  <p className="text-xs sm:text-[13px] text-[#A9DDE8]/90 leading-[1.65] font-sans">
+                    “Jay nailed our MVP with swift turnaround and incredible attention to detail. The final mobile release felt polished, fast, and robust.”
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-2.5 pt-6 mt-4 border-t border-[#0E6BA8]/20">
+                  <img
+                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=160&auto=format&fit=crop&q=80"
+                    alt="Elena Rostova"
+                    className="w-9 h-9 rounded-full object-cover shrink-0 border border-[#0E6BA8]/50"
+                  />
+                  <div>
+                    <div className="text-xs sm:text-[13px] font-semibold text-[#F8FCFD] leading-tight">
+                      Elena Rostova
+                    </div>
+                    <div className="text-[11px] text-[#A9DDE8]/70 mt-0.5">
+                      VP of Product, HealthSync
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+            </div>
+
           </div>
 
-          {/* Auto-play progress bar */}
-          <div className="mt-5 max-w-xs mx-auto h-px bg-[#F4EDE0]/10 rounded-full overflow-hidden">
-            <motion.div
-              key={`progress-${current}`}
-              className="h-full bg-[#E9C46A]"
-              initial={{ width: "0%" }}
-              animate={{ width: paused ? "0%" : "100%" }}
-              transition={{ duration: SLIDE_INTERVAL / 1000, ease: "linear" }}
-            />
-          </div>
         </div>
+
       </div>
     </section>
   );
 }
+

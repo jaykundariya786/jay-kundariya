@@ -1,20 +1,14 @@
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   Mail,
   Linkedin,
   Github,
-  Phone,
   ArrowRight,
   Check,
   AlertCircle,
   Sparkles,
-  Send,
   MessageCircle,
-  Clock,
-  ShieldCheck,
-  CheckCircle2,
-  ExternalLink,
 } from "lucide-react";
 
 interface FormState {
@@ -45,8 +39,7 @@ const TRAVELERS = [
     location: "San Francisco, USA",
     story: "Shipped iOS & Android MVP in 5 weeks",
     rating: "5.0 ★",
-    avatar:
-      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+    avatar: "",
     initials: "SM",
     // Position on concentric rings: angle in deg, radius in % of container
     ring: 1,
@@ -62,8 +55,7 @@ const TRAVELERS = [
     location: "London, UK",
     story: "99.9% crash-free React Native architecture",
     rating: "5.0 ★",
-    avatar:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+    avatar: "",
     initials: "MV",
     ring: 2,
     leftPct: 44,
@@ -207,12 +199,11 @@ export default function NewContactSection() {
   const [status, setStatus] = useState<
     "idle" | "loading" | "success" | "error"
   >("idle");
-  const [hoveredTraveler, setHoveredTraveler] = useState<string | null>(null);
 
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    >,
   ) => {
     const { name, value, type } = e.target;
     const checked = (e.target as HTMLInputElement).checked;
@@ -224,13 +215,6 @@ export default function NewContactSection() {
 
     if (errors[name as keyof FormErrors]) {
       setErrors((prev) => ({ ...prev, [name]: undefined }));
-    }
-  };
-
-  const handleSelectTraveler = (traveler: typeof TRAVELERS[0]) => {
-    setHoveredTraveler(traveler.id);
-    if (!form.projectType) {
-      setForm((prev) => ({ ...prev, projectType: traveler.projectMatch }));
     }
   };
 
@@ -288,23 +272,22 @@ export default function NewContactSection() {
   return (
     <section
       id="contact"
-      className="relative w-full bg-[#FFFFFF] py-14 sm:py-18 md:py-20 px-3.5 sm:px-6 lg:px-8 overflow-hidden"
+      className="relative w-full bg-[#F8FCFD] py-14 sm:py-18 md:py-20 px-3.5 sm:px-6 lg:px-8 overflow-hidden"
     >
       {/* Gentle ambient background warmth */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] bg-[#E9C46A]/6 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] bg-[#0E6BA8]/8 rounded-full blur-[140px] pointer-events-none" />
 
       {/* Main tight & centered wrapper — low wide spacing, not a big view */}
       <div className="max-w-[1040px] mx-auto w-full relative z-10">
-        
         {/* Section Header with warm human invitation */}
         <div className="text-center mb-8 sm:mb-10 max-w-xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-1.5 bg-[#FAF7F0] border border-[#E9C46A]/40 px-3.5 py-1 rounded-full text-[11px] font-mono font-medium text-[#0D1321] uppercase tracking-wider mb-2.5 shadow-sm"
+            className="inline-flex items-center gap-1.5 bg-[#F8FCFD] border border-[#A9DDE8] px-3.5 py-1 rounded-full text-[11px] font-mono font-medium text-[#0B2545] uppercase tracking-wider mb-2.5 shadow-xs"
           >
-            <Sparkles className="w-3 h-3 text-[#E9C46A]" />
+            <Sparkles className="w-3 h-3 text-[#0E6BA8]" />
             <span>The Collaboration Trail</span>
           </motion.div>
 
@@ -313,7 +296,7 @@ export default function NewContactSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-[#0D1321] tracking-tight"
+            className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-[#0B2545] tracking-tight"
           >
             Start the journey.
           </motion.h2>
@@ -323,10 +306,10 @@ export default function NewContactSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="text-xs sm:text-sm text-[#1D2D50]/75 mt-1.5 leading-relaxed"
+            className="text-xs sm:text-sm text-[#0B2545]/70 mt-1.5 leading-relaxed"
           >
-            Every great mobile app begins with a simple conversation. Tell me about your idea,
-            or connect directly along the path.
+            Every great mobile app begins with a simple conversation. Tell me
+            about your idea, or connect directly along the path.
           </motion.p>
         </div>
 
@@ -336,35 +319,33 @@ export default function NewContactSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="bg-[#FAF8F5] border border-[#0D1321]/10 rounded-[28px] sm:rounded-[36px] p-2.5 sm:p-3.5 md:p-4 shadow-[0_20px_50px_-15px_rgba(13,19,33,0.07)]"
+          className="bg-white border border-[#0B2545]/10 rounded-[28px] sm:rounded-[36px] p-2.5 sm:p-3.5 md:p-4 shadow-[0_20px_50px_-15px_rgba(11,37,69,0.08)]"
         >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-3.5 sm:gap-4 lg:gap-5 items-stretch">
-            
             {/* ======================================================== */}
             {/* LEFT PANEL: Orbital Journey Path with connected travelers */}
             {/* ======================================================== */}
-            <div className="lg:col-span-5 flex flex-col justify-between p-5 sm:p-6 md:p-7 rounded-[22px] sm:rounded-[28px] bg-gradient-to-b from-[#FAF7F0] via-[#F4EFE6] to-[#ECE5D8] border border-[#0D1321]/6 relative overflow-hidden min-h-[380px] sm:min-h-[440px] lg:min-h-[580px]">
-              
+            <div className="lg:col-span-5 flex flex-col justify-between p-5 sm:p-6 md:p-7 rounded-[22px] sm:rounded-[28px] bg-gradient-to-b from-[#F8FCFD] via-[#F8FCFD] to-[#A9DDE8]/20 border border-[#0B2545]/10 relative overflow-hidden min-h-[380px] sm:min-h-[440px] lg:min-h-[580px]">
               {/* Top Branding / Station Identity */}
               <div className="relative z-20 flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <div className="w-5 h-5 grid grid-cols-2 gap-0.5">
-                    <span className="w-2 h-2 rounded-full bg-[#0D1321]" />
-                    <span className="w-2 h-2 rounded-full bg-[#E9C46A]" />
-                    <span className="w-2 h-2 rounded-full bg-[#E9C46A]" />
-                    <span className="w-2 h-2 rounded-full bg-[#0D1321]" />
+                    <span className="w-2 h-2 rounded-full bg-[#0B2545]" />
+                    <span className="w-2 h-2 rounded-full bg-[#0E6BA8]" />
+                    <span className="w-2 h-2 rounded-full bg-[#A9DDE8]" />
+                    <span className="w-2 h-2 rounded-full bg-[#0B2545]" />
                   </div>
-                  <span className="font-serif font-bold text-sm tracking-tight text-[#0D1321]">
+                  <span className="font-serif font-bold text-sm tracking-tight text-[#0B2545]">
                     Jay Kundariya
                   </span>
                 </div>
 
-                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/80 border border-black/5 shadow-sm backdrop-blur-sm">
+                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/90 border border-[#0B2545]/10 shadow-xs backdrop-blur-sm">
                   <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-75" />
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#10B981]" />
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10A36B] opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#10A36B]" />
                   </span>
-                  <span className="text-[10px] font-mono font-medium text-[#0D1321]">
+                  <span className="text-[10px] font-mono font-medium text-[#0B2545]">
                     Open for Q4
                   </span>
                 </div>
@@ -372,7 +353,6 @@ export default function NewContactSection() {
 
               {/* Orbital Journey Path Graphic */}
               <div className="relative z-10 my-auto w-full h-[230px] sm:h-[280px] lg:h-[320px] flex items-center justify-center">
-                
                 {/* SVG Concentric Orbit Arcs radiating out from the center-right beacon */}
                 <svg
                   className="absolute inset-0 w-full h-full pointer-events-none"
@@ -389,13 +369,17 @@ export default function NewContactSection() {
                       gradientUnits="userSpaceOnUse"
                       gradientTransform="translate(370, 160) rotate(180) scale(180 180)"
                     >
-                      <stop stopColor="#E9C46A" stopOpacity="0.38" />
-                      <stop offset="0.6" stopColor="#E9C46A" stopOpacity="0.08" />
-                      <stop offset="1" stopColor="#E9C46A" stopOpacity="0" />
+                      <stop stopColor="#0E6BA8" stopOpacity="0.32" />
+                      <stop
+                        offset="0.6"
+                        stopColor="#A9DDE8"
+                        stopOpacity="0.12"
+                      />
+                      <stop offset="1" stopColor="#A9DDE8" stopOpacity="0" />
                     </radialGradient>
                   </defs>
 
-                  {/* Warm Radiant Epicenter Glow */}
+                  {/* Radiant Epicenter Glow */}
                   <rect
                     x="150"
                     y="0"
@@ -411,8 +395,8 @@ export default function NewContactSection() {
                       cx="370"
                       cy="160"
                       r={radius}
-                      stroke="#0D1321"
-                      strokeOpacity={0.07 + idx * 0.02}
+                      stroke="#0B2545"
+                      strokeOpacity={0.08 + idx * 0.02}
                       strokeWidth="1.2"
                       strokeDasharray={idx % 2 === 0 ? "3 5" : "none"}
                     />
@@ -423,20 +407,23 @@ export default function NewContactSection() {
                     cx="370"
                     cy="160"
                     r="40"
-                    stroke="#E9C46A"
+                    stroke="#0E6BA8"
                     strokeWidth="1.5"
-                    strokeOpacity="0.6"
+                    strokeOpacity="0.7"
                     className="animate-ping"
-                    style={{ transformOrigin: "370px 160px", animationDuration: "3s" }}
+                    style={{
+                      transformOrigin: "370px 160px",
+                      animationDuration: "3s",
+                    }}
                   />
 
                   {/* Central destination beacon */}
-                  <circle cx="370" cy="160" r="7" fill="#E9C46A" />
-                  <circle cx="370" cy="160" r="3.5" fill="#0D1321" />
+                  <circle cx="370" cy="160" r="7" fill="#0E6BA8" />
+                  <circle cx="370" cy="160" r="3.5" fill="#0B2545" />
                 </svg>
 
                 {/* Floating Traveler & Milestone Avatars situated along the orbits */}
-                {TRAVELERS.map((t) => {
+                {/* {TRAVELERS.map((t) => {
                   const isHovered = hoveredTraveler === t.id;
                   return (
                     <div
@@ -452,7 +439,6 @@ export default function NewContactSection() {
                       onMouseLeave={() => setHoveredTraveler(null)}
                       onClick={() => handleSelectTraveler(t)}
                     >
-                      {/* Floating Motion Wrapper */}
                       <motion.div
                         animate={{
                           y: isHovered ? -3 : [0, -5, 0],
@@ -465,15 +451,14 @@ export default function NewContactSection() {
                         }}
                         className="relative cursor-pointer"
                       >
-                        {/* Avatar disc */}
                         <div
                           className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full p-[2px] transition-all duration-300 shadow-md relative overflow-hidden ${
                             isHovered
-                              ? "ring-3 ring-[#0D1321] scale-110 shadow-lg"
+                              ? "ring-3 ring-[#0E6BA8] scale-110 shadow-lg"
                               : "ring-2 ring-white hover:scale-105"
                           } bg-white`}
                         >
-                          <div className="absolute inset-0 rounded-full bg-[#E9C46A]/20 text-[#0D1321] text-[10px] font-bold flex items-center justify-center">
+                          <div className="absolute inset-0 rounded-full bg-[#A9DDE8]/30 text-[#0B2545] text-[10px] font-bold flex items-center justify-center">
                             {t.initials}
                           </div>
                           <img
@@ -486,7 +471,6 @@ export default function NewContactSection() {
                           />
                         </div>
 
-                        {/* Interactive Milestone Tooltip Card */}
                         <AnimatePresence>
                           {isHovered && (
                             <motion.div
@@ -494,19 +478,19 @@ export default function NewContactSection() {
                               animate={{ opacity: 1, y: 0, scale: 1 }}
                               exit={{ opacity: 0, y: 4, scale: 0.94 }}
                               transition={{ duration: 0.18 }}
-                              className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 sm:w-56 p-2.5 bg-[#0D1321] text-white rounded-xl shadow-xl z-50 pointer-events-none text-left"
+                              className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 sm:w-56 p-2.5 bg-[#0B2545] text-[#F8FCFD] rounded-xl shadow-xl z-50 pointer-events-none text-left border border-white/10"
                             >
-                              <div className="flex items-center justify-between text-[10px] text-[#E9C46A] font-mono mb-1">
+                              <div className="flex items-center justify-between text-[10px] text-[#A9DDE8] font-mono mb-1">
                                 <span>{t.location}</span>
                                 <span>{t.rating}</span>
                               </div>
                               <div className="font-semibold text-xs text-white leading-tight">
                                 {t.name}
                               </div>
-                              <div className="text-[10px] text-white/60 mb-1.5">
+                              <div className="text-[10px] text-[#A9DDE8]/80 mb-1.5">
                                 {t.role}
                               </div>
-                              <p className="text-[10px] text-[#F4EDE0]/90 leading-tight border-t border-white/10 pt-1.5">
+                              <p className="text-[10px] text-[#F8FCFD]/90 leading-tight border-t border-white/10 pt-1.5">
                                 “{t.story}”
                               </p>
                             </motion.div>
@@ -515,12 +499,12 @@ export default function NewContactSection() {
                       </motion.div>
                     </div>
                   );
-                })}
+                })} */}
               </div>
 
               {/* Bottom Social & Direct Reachout Links (matching reference image style) */}
-              <div className="relative z-20 pt-3 border-t border-[#0D1321]/8">
-                <div className="text-[10px] font-mono font-semibold uppercase tracking-wider text-[#0D1321]/60 mb-2">
+              <div className="relative z-20 pt-3 border-t border-[#0B2545]/10">
+                <div className="text-[10px] font-mono font-semibold uppercase tracking-wider text-[#0B2545]/60 mb-2">
                   Direct channels
                 </div>
                 <div className="grid grid-cols-2 gap-1.5 sm:gap-2">
@@ -530,18 +514,20 @@ export default function NewContactSection() {
                       <a
                         key={item.label}
                         href={item.href}
-                        target={item.href.startsWith("http") ? "_blank" : undefined}
+                        target={
+                          item.href.startsWith("http") ? "_blank" : undefined
+                        }
                         rel="noopener noreferrer"
                         className="group flex items-center gap-2 p-1.5 rounded-lg hover:bg-white/70 transition-all text-left"
                       >
-                        <div className="w-6 h-6 rounded-md bg-[#0D1321]/5 group-hover:bg-[#0D1321] group-hover:text-white flex items-center justify-center shrink-0 text-[#0D1321] transition-colors">
+                        <div className="w-6 h-6 rounded-md bg-[#0B2545]/5 group-hover:bg-[#0E6BA8] group-hover:text-white flex items-center justify-center shrink-0 text-[#0B2545] transition-colors">
                           <Icon className="w-3.5 h-3.5" />
                         </div>
                         <div className="min-w-0">
-                          <div className="text-[9px] font-mono text-[#0D1321]/50 uppercase tracking-wider leading-none">
+                          <div className="text-[9px] font-mono text-[#0B2545]/50 uppercase tracking-wider leading-none">
                             {item.label}
                           </div>
-                          <div className="text-[11px] font-medium text-[#0D1321] group-hover:text-[#0D1321] truncate">
+                          <div className="text-[11px] font-medium text-[#0B2545] group-hover:text-[#0E6BA8] truncate">
                             {item.handle}
                           </div>
                         </div>
@@ -553,20 +539,19 @@ export default function NewContactSection() {
             </div>
 
             {/* ======================================================== */}
-            {/* RIGHT PANEL: High-impact warm solar card + clean form    */}
+            {/* RIGHT PANEL: High-impact Navy card + clean modern form    */}
             {/* ======================================================== */}
-            <div className="lg:col-span-7 rounded-[22px] sm:rounded-[28px] p-5 sm:p-7 md:p-8 bg-[#E9C46A] text-[#0D1321] flex flex-col justify-between shadow-xs relative overflow-hidden">
-              
-              {/* Subtle solar flare watermark in top corner */}
-              <div className="absolute top-0 right-0 w-64 h-64 bg-white/20 rounded-full blur-[70px] pointer-events-none" />
+            <div className="lg:col-span-7 rounded-[22px] sm:rounded-[28px] p-5 sm:p-7 md:p-8 bg-[#0B2545] text-[#F8FCFD] flex flex-col justify-between shadow-md relative overflow-hidden">
+              {/* Subtle ocean aura in top corner */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-[#0E6BA8]/30 rounded-full blur-[70px] pointer-events-none" />
 
               <div className="relative z-10">
                 {/* Header inside the card */}
                 <div className="mb-5">
-                  <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#0D1321] tracking-tight">
+                  <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white tracking-tight">
                     Contact us
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#0D1321]/80 mt-1">
+                  <p className="text-xs sm:text-sm text-[#A9DDE8] mt-1">
                     Reach out and we'll get in touch within 24 hours.
                   </p>
                 </div>
@@ -578,20 +563,21 @@ export default function NewContactSection() {
                     animate={{ opacity: 1, scale: 1 }}
                     className="py-10 text-center flex flex-col items-center justify-center"
                   >
-                    <div className="w-16 h-16 rounded-full bg-[#0D1321] text-white flex items-center justify-center mb-4 shadow-lg">
-                      <Check className="w-8 h-8 text-[#E9C46A]" />
+                    <div className="w-16 h-16 rounded-full bg-[#10A36B] text-white flex items-center justify-center mb-4 shadow-lg">
+                      <Check className="w-8 h-8 text-white" />
                     </div>
-                    <div className="font-serif text-2xl font-bold text-[#0D1321] mb-1">
+                    <div className="font-serif text-2xl font-bold text-white mb-1">
                       Journey Initiated!
                     </div>
-                    <p className="text-xs sm:text-sm text-[#0D1321]/80 max-w-sm mb-6">
-                      Thanks {form.firstName || "friend"}! Your message has safely arrived.
-                      I'll review your project details and write back personally within 24 hours.
+                    <p className="text-xs sm:text-sm text-[#F8FCFD]/85 max-w-sm mb-6">
+                      Thanks {form.firstName || "friend"}! Your message has
+                      safely arrived. I'll review your project details and write
+                      back personally within 24 hours.
                     </p>
                     <div className="flex flex-wrap gap-3 justify-center">
                       <button
                         onClick={handleReset}
-                        className="px-4 py-2 bg-white text-[#0D1321] font-semibold text-xs rounded-xl shadow-sm hover:bg-[#FAF8F5] transition-all cursor-pointer"
+                        className="px-4 py-2 bg-white text-[#0B2545] font-semibold text-xs rounded-xl shadow-xs hover:bg-[#F8FCFD] transition-all cursor-pointer"
                       >
                         Send another message
                       </button>
@@ -599,7 +585,7 @@ export default function NewContactSection() {
                         href="https://wa.me/917984223426"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-4 py-2 bg-[#0D1321] text-white font-semibold text-xs rounded-xl shadow-sm hover:bg-black transition-all flex items-center gap-1.5"
+                        className="px-4 py-2 bg-[#10A36B] hover:bg-[#10A36B]/90 text-white font-semibold text-xs rounded-xl shadow-xs transition-all flex items-center gap-1.5"
                       >
                         <MessageCircle className="w-3.5 h-3.5" />
                         Quick WhatsApp Sync
@@ -608,8 +594,11 @@ export default function NewContactSection() {
                   </motion.div>
                 ) : (
                   /* State: Clean Form */
-                  <form onSubmit={handleSubmit} noValidate className="space-y-3 sm:space-y-3.5">
-                    
+                  <form
+                    onSubmit={handleSubmit}
+                    noValidate
+                    className="space-y-3 sm:space-y-3.5"
+                  >
                     {/* Bot Honeypot */}
                     <input
                       type="text"
@@ -624,8 +613,8 @@ export default function NewContactSection() {
                     {/* Row 1: First name + Last name */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
                       <div>
-                        <label className="block text-[11px] font-medium text-[#0D1321] mb-1">
-                          First name <span className="text-red-700">*</span>
+                        <label className="block text-[11px] font-medium text-[#F8FCFD]/90 mb-1">
+                          First name <span className="text-[#A9DDE8]">*</span>
                         </label>
                         <input
                           type="text"
@@ -633,19 +622,21 @@ export default function NewContactSection() {
                           value={form.firstName}
                           onChange={handleChange}
                           placeholder="First name"
-                          className={`w-full bg-white/95 border rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-[#0D1321] placeholder-[#0D1321]/35 focus:outline-none focus:ring-2 focus:ring-[#0D1321] transition-all shadow-sm ${
-                            errors.firstName ? "border-red-500" : "border-black/10"
+                          className={`w-full bg-[#F8FCFD] border rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-[#0B2545] placeholder-[#0B2545]/40 focus:outline-none focus:ring-2 focus:ring-[#0E6BA8] transition-all shadow-xs ${
+                            errors.firstName
+                              ? "border-red-400"
+                              : "border-[#A9DDE8]/40"
                           }`}
                         />
                         {errors.firstName && (
-                          <p className="text-[10px] text-red-700 font-medium mt-1">
+                          <p className="text-[10px] text-red-300 font-medium mt-1">
                             {errors.firstName}
                           </p>
                         )}
                       </div>
 
                       <div>
-                        <label className="block text-[11px] font-medium text-[#0D1321] mb-1">
+                        <label className="block text-[11px] font-medium text-[#F8FCFD]/90 mb-1">
                           Last name
                         </label>
                         <input
@@ -654,15 +645,15 @@ export default function NewContactSection() {
                           value={form.lastName}
                           onChange={handleChange}
                           placeholder="Last name"
-                          className="w-full bg-white/95 border border-black/10 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-[#0D1321] placeholder-[#0D1321]/35 focus:outline-none focus:ring-2 focus:ring-[#0D1321] transition-all shadow-sm"
+                          className="w-full bg-[#F8FCFD] border border-[#A9DDE8]/40 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-[#0B2545] placeholder-[#0B2545]/40 focus:outline-none focus:ring-2 focus:ring-[#0E6BA8] transition-all shadow-xs"
                         />
                       </div>
                     </div>
 
                     {/* Row 2: Email */}
                     <div>
-                      <label className="block text-[11px] font-medium text-[#0D1321] mb-1">
-                        Email <span className="text-red-700">*</span>
+                      <label className="block text-[11px] font-medium text-[#F8FCFD]/90 mb-1">
+                        Email <span className="text-[#A9DDE8]">*</span>
                       </label>
                       <input
                         type="email"
@@ -670,12 +661,14 @@ export default function NewContactSection() {
                         value={form.email}
                         onChange={handleChange}
                         placeholder="you@company.com"
-                        className={`w-full bg-white/95 border rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-[#0D1321] placeholder-[#0D1321]/35 focus:outline-none focus:ring-2 focus:ring-[#0D1321] transition-all shadow-sm ${
-                          errors.email ? "border-red-500" : "border-black/10"
+                        className={`w-full bg-[#F8FCFD] border rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-[#0B2545] placeholder-[#0B2545]/40 focus:outline-none focus:ring-2 focus:ring-[#0E6BA8] transition-all shadow-xs ${
+                          errors.email
+                            ? "border-red-400"
+                            : "border-[#A9DDE8]/40"
                         }`}
                       />
                       {errors.email && (
-                        <p className="text-[10px] text-red-700 font-medium mt-1">
+                        <p className="text-[10px] text-red-300 font-medium mt-1">
                           {errors.email}
                         </p>
                       )}
@@ -684,15 +677,18 @@ export default function NewContactSection() {
                     {/* Row 3: Project scope + Timeline */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
                       <div>
-                        <label className="block text-[11px] font-medium text-[#0D1321] mb-1">
-                          What are we building? <span className="text-red-700">*</span>
+                        <label className="block text-[11px] font-medium text-[#F8FCFD]/90 mb-1">
+                          What are we building?{" "}
+                          <span className="text-[#A9DDE8]">*</span>
                         </label>
                         <select
                           name="projectType"
                           value={form.projectType}
                           onChange={handleChange}
-                          className={`w-full bg-white/95 border rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-[#0D1321] focus:outline-none focus:ring-2 focus:ring-[#0D1321] transition-all shadow-sm cursor-pointer ${
-                            errors.projectType ? "border-red-500" : "border-black/10"
+                          className={`w-full bg-[#F8FCFD] border rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-[#0B2545] focus:outline-none focus:ring-2 focus:ring-[#0E6BA8] transition-all shadow-xs cursor-pointer ${
+                            errors.projectType
+                              ? "border-red-400"
+                              : "border-[#A9DDE8]/40"
                           }`}
                         >
                           <option value="">Select scope…</option>
@@ -703,21 +699,21 @@ export default function NewContactSection() {
                           ))}
                         </select>
                         {errors.projectType && (
-                          <p className="text-[10px] text-red-700 font-medium mt-1">
+                          <p className="text-[10px] text-red-300 font-medium mt-1">
                             {errors.projectType}
                           </p>
                         )}
                       </div>
 
                       <div>
-                        <label className="block text-[11px] font-medium text-[#0D1321] mb-1">
+                        <label className="block text-[11px] font-medium text-[#F8FCFD]/90 mb-1">
                           Target timeline
                         </label>
                         <select
                           name="timeline"
                           value={form.timeline}
                           onChange={handleChange}
-                          className="w-full bg-white/95 border border-black/10 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-[#0D1321] focus:outline-none focus:ring-2 focus:ring-[#0D1321] transition-all shadow-sm cursor-pointer"
+                          className="w-full bg-[#F8FCFD] border border-[#A9DDE8]/40 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-[#0B2545] focus:outline-none focus:ring-2 focus:ring-[#0E6BA8] transition-all shadow-xs cursor-pointer"
                         >
                           <option value="">Select timeline…</option>
                           {TIMELINE_OPTIONS.map((opt) => (
@@ -731,8 +727,8 @@ export default function NewContactSection() {
 
                     {/* Row 4: Message */}
                     <div>
-                      <label className="block text-[11px] font-medium text-[#0D1321] mb-1">
-                        Message <span className="text-red-700">*</span>
+                      <label className="block text-[11px] font-medium text-[#F8FCFD]/90 mb-1">
+                        Message <span className="text-[#A9DDE8]">*</span>
                       </label>
                       <textarea
                         name="message"
@@ -740,12 +736,14 @@ export default function NewContactSection() {
                         onChange={handleChange}
                         rows={3}
                         placeholder="Tell me a bit about your product, features, or roadmap…"
-                        className={`w-full bg-white/95 border rounded-xl px-3.5 py-2 text-xs sm:text-sm text-[#0D1321] placeholder-[#0D1321]/35 focus:outline-none focus:ring-2 focus:ring-[#0D1321] transition-all resize-none shadow-sm ${
-                          errors.message ? "border-red-500" : "border-black/10"
+                        className={`w-full bg-[#F8FCFD] border rounded-xl px-3.5 py-2 text-xs sm:text-sm text-[#0B2545] placeholder-[#0B2545]/40 focus:outline-none focus:ring-2 focus:ring-[#0E6BA8] transition-all resize-none shadow-xs ${
+                          errors.message
+                            ? "border-red-400"
+                            : "border-[#A9DDE8]/40"
                         }`}
                       />
                       {errors.message && (
-                        <p className="text-[10px] text-red-700 font-medium mt-1">
+                        <p className="text-[10px] text-red-300 font-medium mt-1">
                           {errors.message}
                         </p>
                       )}
@@ -759,14 +757,15 @@ export default function NewContactSection() {
                           name="agreed"
                           checked={form.agreed}
                           onChange={handleChange}
-                          className="mt-0.5 w-4 h-4 rounded-sm border-black/20 text-[#0D1321] accent-[#0D1321] focus:ring-0 cursor-pointer"
+                          className="mt-0.5 w-4 h-4 rounded-sm border-white/20 text-[#0E6BA8] accent-[#0E6BA8] focus:ring-0 cursor-pointer"
                         />
-                        <span className="text-[11px] sm:text-xs text-[#0D1321]/80 leading-snug">
-                          You agree to our friendly conversation policy — guaranteed reply within 24h, no spam.
+                        <span className="text-[11px] sm:text-xs text-[#F8FCFD]/85 leading-snug">
+                          You agree to our friendly conversation policy —
+                          guaranteed reply within 24h, no spam.
                         </span>
                       </label>
                       {errors.agreed && (
-                        <p className="text-[10px] text-red-700 font-medium mt-1">
+                        <p className="text-[10px] text-red-300 font-medium mt-1">
                           {errors.agreed}
                         </p>
                       )}
@@ -778,7 +777,7 @@ export default function NewContactSection() {
                       disabled={status === "loading"}
                       whileHover={{ scale: 1.01 }}
                       whileTap={{ scale: 0.99 }}
-                      className="w-full mt-1 bg-[#0D1321] hover:bg-black text-white font-semibold text-xs sm:text-sm py-3 px-5 rounded-xl shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed"
+                      className="w-full mt-1 bg-[#0E6BA8] hover:bg-[#0E6BA8]/90 text-white font-semibold text-xs sm:text-sm py-3 px-5 rounded-xl shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed"
                     >
                       {status === "loading" ? (
                         <>
@@ -794,7 +793,7 @@ export default function NewContactSection() {
                     </motion.button>
 
                     {status === "error" && (
-                      <p className="text-xs text-red-800 text-center mt-2 flex items-center justify-center gap-1.5">
+                      <p className="text-xs text-red-300 text-center mt-2 flex items-center justify-center gap-1.5">
                         <AlertCircle className="w-3.5 h-3.5" />
                         Something went wrong. Feel free to WhatsApp me directly!
                       </p>
@@ -804,24 +803,23 @@ export default function NewContactSection() {
               </div>
 
               {/* Bottom Trusted Ecosystem & Capability Strip */}
-              <div className="relative z-10 pt-4 mt-4 border-t border-[#0D1321]/15">
-                <div className="text-[9px] font-mono uppercase tracking-wider text-[#0D1321]/60 mb-2">
+              <div className="relative z-10 pt-4 mt-4 border-t border-white/10">
+                <div className="text-[9px] font-mono uppercase tracking-wider text-[#A9DDE8]/70 mb-2">
                   Specializing in modern mobile & web
                 </div>
                 <div className="flex flex-wrap items-center gap-x-3.5 gap-y-1.5">
                   {PLATFORM_BADGES.map((badge) => (
                     <div
                       key={badge.name}
-                      className="flex items-center gap-1 text-[11px] font-semibold text-[#0D1321]/80 hover:text-[#0D1321] transition-colors"
+                      className="flex items-center gap-1 text-[11px] font-semibold text-[#F8FCFD]/80 hover:text-white transition-colors"
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#0D1321]/40" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#A9DDE8]" />
                       <span>{badge.name}</span>
                     </div>
                   ))}
                 </div>
               </div>
             </div>
-
           </div>
         </motion.div>
       </div>
