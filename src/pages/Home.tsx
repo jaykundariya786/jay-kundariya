@@ -7,7 +7,7 @@ import ServicesSection from "../components/ServicesSection";
 import TechStackSection from "../components/TechStackSection";
 import ExperienceSection from "../components/ExperienceSection";
 import ProcessSection from "../components/ProcessSection";
-import TestimonialsSection from "../components/TestimonialsSection";
+// import TestimonialsSection from "../components/TestimonialsSection";
 import NewContactSection from "../components/NewContactSection";
 import NewFooter from "../components/NewFooter";
 
@@ -42,7 +42,7 @@ export default function Home() {
       <ProcessSection />
 
       {/* 11. Testimonials — dark glass carousel with auto-play */}
-      <TestimonialsSection />
+      {/* <TestimonialsSection /> */}
 
       {/* 12. Contact — 2-col form with animated gold border */}
       <NewContactSection />

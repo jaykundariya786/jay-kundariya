@@ -246,9 +246,38 @@ export default function NewContactSection() {
 
     setStatus("loading");
     try {
-      // Simulate submission endpoint
-      await new Promise((res) => setTimeout(res, 1200));
-      setStatus("success");
+      const fullName = `${form.firstName} ${form.lastName}`.trim() || "Prospective Client";
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "2cf9784c-595c-4c70-8055-fb38b36cfd21",
+          subject: `🚀 New Lead: ${form.projectType} — ${fullName}`,
+          from_name: `${fullName} (Portfolio)`,
+          replyto: form.email,
+
+          // Clean, high-impact structured layout without duplicates
+          "👤 Client Name": fullName,
+          "📧 Client Email": form.email,
+          "🎯 Project Scope": form.projectType,
+          "⏱️ Target Timeline": form.timeline || "Flexible / Exploring",
+          "💬 Project Overview": form.message,
+          "📅 Submitted": new Date().toLocaleString("en-IN", {
+            dateStyle: "medium",
+            timeStyle: "short",
+          }),
+        }),
+      });
+
+      const data = await response.json().catch(() => null);
+      if (response.ok && data?.success === true) {
+        setStatus("success");
+      } else {
+        setStatus("error");
+      }
     } catch {
       setStatus("error");
     }

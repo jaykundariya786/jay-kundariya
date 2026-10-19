@@ -197,7 +197,7 @@ export default function Navbar() {
 
                 {/* Hover state: centered text + arrow sliding in */}
                 <span className="absolute inset-0 z-10 flex items-center justify-center gap-2 opacity-0 transition-all duration-300 group-hover:opacity-100 font-sans font-bold text-[#F8FCFD]">
-                  <span>Get in Touch</span>
+                  <span>Let's talk</span>
                   <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 text-[#F8FCFD]" />
                 </span>
               </button>

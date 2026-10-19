@@ -79,7 +79,7 @@ const FOOTER_COLUMNS: FooterColumn[] = [
         href: "https://github.com/jaykundariya786",
         isExternal: true,
       },
-      { label: "Rajkot, India (IST)", href: "#contact" },
+      { label: "Surat, Gujarat, India (IST)", href: "#contact" },
     ],
   },
 ];
@@ -142,10 +142,7 @@ export default function NewFooter() {
             {/* Brand Column (spans 2 cols on lg) */}
             <div className="col-span-2">
               <div className="flex items-center gap-2 mb-3">
-                <div className="w-7 h-7 rounded-lg bg-[#0B2545] text-[#A9DDE8] flex items-center justify-center shadow-xs">
-                  <Sparkles className="w-4 h-4" />
-                </div>
-                <span className="font-serif font-bold text-lg text-[#0B2545] tracking-tight">
+                <span className="font-serif font-bold text-2xl text-[#0B2545] tracking-tight">
                   Jay Kundariya
                 </span>
               </div>
@@ -208,7 +205,7 @@ export default function NewFooter() {
 
             {/* Social Icons Strip */}
             <div className="flex flex-wrap items-center justify-center sm:justify-end gap-2.5 sm:gap-3.5">
-              <a
+              {/* <a
                 href="https://twitter.com/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -216,7 +213,7 @@ export default function NewFooter() {
                 className="text-[#0B2545]/50 hover:text-[#0E6BA8] transition-colors"
               >
                 <Twitter className="w-4 h-4" />
-              </a>
+              </a> */}
 
               <a
                 href="https://github.com/jaykundariya786"
